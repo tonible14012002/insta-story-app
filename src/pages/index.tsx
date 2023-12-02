@@ -1,28 +1,7 @@
-import { useState } from "react";
-import { BasicStory } from "@/schema/story";
-import { identityService, storyService } from "@/apis";
-import { useEffect } from "react";
-import { IconButton, List, Modal, ModalClose, ModalContent, ModalTitle, ModalTrigger, TextFieldDecorator, TextFieldInput, TextFieldRoot } from "@consolelabs/core";
-import { AddUserSolid, ArrowDownLine, ArrowLeftLine, ArrowRightLine, ArrowUpLine, CloseLine, ThreeDotLoading, WalletAddSolid } from "@consolelabs/icons";
-import { User } from "@/schema";
+import { IconButton} from "@consolelabs/core";
+import { AddUserSolid, ArrowDownLine, ArrowUpLine, ThreeDotLoading } from "@consolelabs/icons";
 
 export default function Home () {
-
-   const [ stories, setStories ] = useState<BasicStory[]>([])
-   const [ users, setUsers ] = useState<User[]>([])
-
-   useEffect(() => {
-      const fetch = async () => {
-         try {
-            const { data } = await identityService.allUsers()
-            setUsers(data)
-         }
-         catch (e) {}
-      }
-      fetch()
-   }, [])
-
-   if (!users) return <ThreeDotLoading width={40} height={40}/>
 
    return (
       <div className="p-4 flex flex-col gap-4 flex-1 pt-16">
