@@ -1,12 +1,22 @@
 import type { Config } from 'tailwindcss'
+import { consolelabs } from '@consolelabs/theme'
+import plugin from 'tailwindcss'
 
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/@consolelabs/theme/dist/components/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
+    container: {
+      center: true,
+      screens: {
+        DEFAULT: "100%",
+        sm: '480px',
+      }
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -15,6 +25,8 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    consolelabs(),
+  ],
 }
 export default config
