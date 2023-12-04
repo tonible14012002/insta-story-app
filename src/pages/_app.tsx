@@ -9,13 +9,13 @@ import { Header } from '@/components/common/header'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <AuthProvider>
-      <AuthGuard>
-        <Layout>
+    <Layout>
+      <AuthProvider>
+        <AuthGuard>
           <Header />
           <Component {...pageProps} />
-        </Layout>
-      </AuthGuard>
-    </AuthProvider>
+        </AuthGuard>
+      </AuthProvider>
+    </Layout>
   )
 }

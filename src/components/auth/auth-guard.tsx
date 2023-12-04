@@ -28,10 +28,6 @@ const AuthGuard = ({
                 return
             }
 
-            const validToken = (
-                tokenIsValid ? JWTManager?.getToken() : JWTManager?.getRefreshToken()
-            )
-
             const getMyProfile = async () => {
                 try {
                     setIsLoading(true)
@@ -42,7 +38,6 @@ const AuthGuard = ({
                     }
                 }
                 catch (e) {
-                    console.log(e)
                     setIsAuthenticated(false)
                 }
                 finally {
@@ -55,12 +50,12 @@ const AuthGuard = ({
         }
         else {
             setIsAuthenticated(false)
+            setIsLoading(false)
         }
     }
 
     useEffect(handleTokenGuard, [setUser, user, isMounted])
 
-    console.log({isLoading, isAuthenticated})
     return (
         <>
             {
