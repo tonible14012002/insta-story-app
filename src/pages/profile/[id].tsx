@@ -59,7 +59,7 @@ export default function Profile() {
               </ModalTrigger>
               <ModalContent>
                 <div className="w-96 h-96">
-                  <div className="flex flex-row gap-2 justify-center items-center">
+                  <div className="flex flex-row gap-2 justify-center items-center border-b-2 border-solid border-gray-400">
                     <h3 className="font-bold text-lg">
                       {profile?.total_followers}
                     </h3>
@@ -79,7 +79,7 @@ export default function Profile() {
               </ModalTrigger>
               <ModalContent>
                 <div className="w-96 h-96">
-                  <div className="flex flex-row gap-2 justify-center items-center">
+                  <div className="flex flex-row gap-2 justify-center items-center border-b-2 border-solid border-gray-400">
                     <h3 className="font-bold text-lg">
                       {profile?.total_followings}
                     </h3>
