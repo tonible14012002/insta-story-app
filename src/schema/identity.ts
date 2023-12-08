@@ -13,6 +13,7 @@ export type User = {
   phone: string;
   total_followers: number;
   total_followings: number;
+  is_followed?: boolean;
 };
 
 export type BasicUser = {

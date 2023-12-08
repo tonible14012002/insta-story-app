@@ -7,7 +7,7 @@ export const useFetchFollower = (id?: string) => {
   const { data, ...props } = useFetchWithCache(
     // The Fetcher only be called when cache Key is not Null value
     id ? [FETCH_FOLLOWER_KEY, id] : null,
-    () => identityService.getFollowerbyId(id as string)
+    () => identityService.getFollowerbyId(id as string),
   );
   return {
     followers: data?.data,

@@ -1,53 +1,57 @@
-import { Client } from '@/libs/apis';
-import fetcher from '@/libs/fetcher';
-import JWTManager from '@/libs/jwt-manager';
+import { Client } from "@/libs/apis";
+import fetcher from "@/libs/fetcher";
+import JWTManager from "@/libs/jwt-manager";
 
-import { BaseResponse, LoginResponse, User, UserRegistrationParams } from '@/schema';
-import { BasicStory, CreateStoryParams, Story } from '@/schema/story';
+import {
+  BaseResponse,
+  LoginResponse,
+  User,
+  UserRegistrationParams,
+} from "@/schema";
+import { BasicStory, CreateStoryParams, Story } from "@/schema/story";
 
 class StoryService extends Client {
   public setAuth() {
-   const token = JWTManager?.getToken()
+    const token = JWTManager?.getToken();
     if (token && JWTManager.isTokenValid()) {
-      this.setAuthToken(token)
+      this.setAuthToken(token);
     }
   }
 
   public createStory(params: CreateStoryParams) {
-    this.setAuth()
+    this.setAuth();
     return fetcher<BaseResponse<Story>>(
       `${this.baseUrl}/api/story-services/new/`,
       {
         headers: this.privateHeaders,
-        method: 'POST',
+        method: "POST",
       },
-    )
+    );
   }
 
-   public getStories() {
-    this.setAuth()
+  public getStories() {
+    this.setAuth();
     return fetcher<BaseResponse<BasicStory[]>>(
       `${this.baseUrl}/api/story-services/following/`,
       {
         headers: this.privateHeaders,
-        method: 'GET',
+        method: "GET",
       },
-    )
+    );
   }
 
-public getArchievedStories() {
-    this.setAuth()
+  public getArchievedStories() {
+    this.setAuth();
     return fetcher<BaseResponse<Story[]>>(
       `${this.baseUrl}/api/story-services/archieved/`,
       {
         headers: this.privateHeaders,
-        method: 'GET',
+        method: "GET",
       },
-    )
+    );
   }
-
 }
 
-const storyService = new StoryService()
+const storyService = new StoryService();
 
-export { storyService }
+export { storyService };

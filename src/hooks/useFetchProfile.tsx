@@ -7,7 +7,7 @@ export const useFetchProfile = (id?: string) => {
   const { data, ...props } = useFetchWithCache(
     // The Fetcher only be called when cache Key is not Null value
     id ? [FETCH_PROFILE_KEY, id] : null,
-    () => identityService.profileById(id as string)
+    () => identityService.profileById(id as string),
   );
   return {
     profile: data?.data,

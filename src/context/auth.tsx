@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
       setUser,
       logout,
     }),
-    [logout, user]
+    [logout, user],
   );
 
   return (

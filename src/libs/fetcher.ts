@@ -1,15 +1,15 @@
-import fetch from 'isomorphic-unfetch'
+import fetch from "isomorphic-unfetch";
 
 export class FetcherError extends Error {
-  public statusCode: number
-  public res: Response
-  public body?: any
+  public statusCode: number;
+  public res: Response;
+  public body?: any;
 
   constructor(message: string, statusCode: number, origResponse: Response) {
-    super(message)
-    this.name = 'HttpError'
-    this.statusCode = statusCode
-    this.res = origResponse
+    super(message);
+    this.name = "HttpError";
+    this.statusCode = statusCode;
+    this.res = origResponse;
   }
 }
 
@@ -18,31 +18,31 @@ export default async function fetcher<JSON = any>(
   init?: RequestInit,
 ): Promise<JSON> {
   try {
-    const res = await fetch(input, init)
+    const res = await fetch(input, init);
     if (res.ok) {
-      return await (res.json() as Promise<JSON>)
+      return await (res.json() as Promise<JSON>);
     }
 
-    const error = new FetcherError(res.statusText, res.status, res)
+    const error = new FetcherError(res.statusText, res.status, res);
 
     const isResponseJson = res.headers
-      .get('content-type')
-      ?.includes('application/json')
+      .get("content-type")
+      ?.includes("application/json");
 
     if (isResponseJson) {
-      let data
+      let data;
 
       try {
-        data = (await res.json()) as any
-        error.body = data
-        error.message = data?.message || data?.data?.message
+        data = (await res.json()) as any;
+        error.body = data;
+        error.message = data?.message || data?.data?.message;
       } catch (err: any) {
-        error.message = err.message
+        error.message = err.message;
       }
     }
 
-    return await Promise.reject(error)
+    return await Promise.reject(error);
   } catch (error: any) {
-    return await Promise.reject(error)
+    return await Promise.reject(error);
   }
 }

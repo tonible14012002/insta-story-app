@@ -1,1 +1,1 @@
-export * from './page-skeleton'
+export * from "./page-skeleton";

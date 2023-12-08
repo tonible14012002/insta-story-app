@@ -2,11 +2,15 @@
   "name": "insta",
   "version": "0.1.0",
   "private": true,
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@consolelabs/core": "^0.4.0",
@@ -29,8 +33,13 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
     "postcss": "^8",
+    "prettier": "3.1.0",
     "tailwindcss": "^3.3.0",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "^5"
   }
 }

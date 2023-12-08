@@ -25,7 +25,7 @@ class IdentityService extends Client {
         headers: this.headers,
         method: "POST",
         body: JSON.stringify(params),
-      }
+      },
     );
   }
 
@@ -36,7 +36,7 @@ class IdentityService extends Client {
         headers: this.headers,
         method: "POST",
         body: JSON.stringify(params),
-      }
+      },
     );
   }
 
@@ -48,7 +48,7 @@ class IdentityService extends Client {
       {
         headers: this.privateHeaders,
         method: "POST",
-      }
+      },
     );
   }
 
@@ -60,7 +60,7 @@ class IdentityService extends Client {
       {
         headers: this.privateHeaders,
         method: "GET",
-      }
+      },
     );
   }
   public getFollowerbyId(id: string) {
@@ -71,7 +71,7 @@ class IdentityService extends Client {
       {
         headers: this.privateHeaders,
         method: "GET",
-      }
+      },
     );
   }
   public getFollowingbyId(id: string) {
@@ -82,7 +82,7 @@ class IdentityService extends Client {
       {
         headers: this.privateHeaders,
         method: "GET",
-      }
+      },
     );
   }
   public followUser(id: string) {
@@ -93,7 +93,7 @@ class IdentityService extends Client {
       {
         headers: this.privateHeaders,
         method: "POST",
-      }
+      },
     );
   }
   public unfollowUser(id: string) {
@@ -104,7 +104,7 @@ class IdentityService extends Client {
       {
         headers: this.privateHeaders,
         method: "POST",
-      }
+      },
     );
   }
 
@@ -116,7 +116,7 @@ class IdentityService extends Client {
       {
         headers: this.privateHeaders,
         method: "GET",
-      }
+      },
     );
   }
 }
