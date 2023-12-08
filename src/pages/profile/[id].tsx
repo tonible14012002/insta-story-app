@@ -4,6 +4,7 @@ import {
   Button,
   List,
   Modal,
+  ModalClose,
   ModalContent,
   ModalTrigger,
   SelectSeparator,
@@ -20,8 +21,10 @@ import { ROUTES } from "@/constants/routes";
 import { useFetchFollowing } from "@/hooks/useFetchFollowing";
 import clsx from "clsx";
 import { animation } from "@/utils/style";
-import { MinusLine, PlusLine } from "@consolelabs/icons";
+import { PlusCircleOutlined, PlusLine } from "@consolelabs/icons";
 import { BasicUser } from "@/schema";
+import { ArchievedStories } from "@/components/profile/archieve-stories/archieve-stories";
+import * as Tab from "@radix-ui/react-tabs";
 
 export default function Profile() {
   const { query } = useRouter();
@@ -33,11 +36,11 @@ export default function Profile() {
   const [isOpenFollowing, setIsOpenFollowing] = useState(false);
   const [isLoadingFollow, setIsLoadingFollow] = useState(false);
 
-  const { followers } = useFetchFollower(
-    isOpenFollower ? (query?.id as string | undefined) : undefined,
+  const { followers, isLoading: isLoadingFollowers } = useFetchFollower(
+    isOpenFollower ? (query?.id as string) : undefined,
   );
-  const { followings } = useFetchFollowing(
-    isOpenFollower ? (query?.id as string | undefined) : undefined,
+  const { followings, isLoading: isLoadingFollowings } = useFetchFollowing(
+    isOpenFollowing ? (query?.id as string) : undefined,
   );
 
   if (isFirstLoading) {
@@ -46,7 +49,7 @@ export default function Profile() {
 
   const isCurrentUserProfile = profile?.id === user?.id;
 
-  const renderFollowButton = !isCurrentUserProfile && (
+  const renderFollowButton = (
     <Button
       className="min-w-[120px]"
       variant={profile?.is_followed ? "outline" : "solid"}
@@ -77,32 +80,49 @@ export default function Profile() {
     </Button>
   );
 
-  const renderBasicUser = (user: BasicUser) => (
+  const renderEditProfileModal = (
+    <Modal>
+      <ModalTrigger asChild>
+        <Button className="min-w-[120px]" variant="outline" color="secondary">
+          Edit Profile
+        </Button>
+      </ModalTrigger>
+      <ModalContent
+        className={clsx("duration-200", ...animation.modalAnimation)}
+      >
+        Edit Profile
+      </ModalContent>
+    </Modal>
+  );
+
+  const userItemRenderer = (user: BasicUser) => (
     <Link key={user.id} href={ROUTES.USER_PROFILE(user.id)}>
-      <div className="flex flex-row gap-4 items-center hover:gap-5 transition-all">
-        <Avatar src={user.avatar as string} />
-        <Typography level="h7" className="line-clamp-1">
-          @_{user.nickname}
-        </Typography>
-      </div>
+      <ModalClose asChild>
+        <div className="flex flex-row gap-4 items-center hover:gap-5 transition-all px-2 hover:bg-neutral-plain-hover py-2 rounded-md">
+          <Avatar src={user.avatar as string} />
+          <Typography level="h7" className="line-clamp-1">
+            @_{user.nickname}
+          </Typography>
+        </div>
+      </ModalClose>
     </Link>
   );
 
   return (
-    <div className="p-4 space-y-4">
+    <div className="p-4 space-y-8">
       <div className="flex flex-row items-start gap-4 h-[100px]">
         <div className="w-[100px] h-full shrink-0">
           <Avatar src={profile?.avatar as string} />
         </div>
-        <div className="flex flex-col gap-4 justify-between h-full">
+        <div className="flex flex-1 flex-col gap-4 justify-between h-full">
           <Typography
             level="h4"
-            className="line-clamp-1 tracking-tighter max-w-[200px]"
+            className="line-clamp-1 tracking-tighter max-w-[90%]"
           >
             @_{profile?.nickname}
           </Typography>
           <div className="flex h-10 gap-6 items-start">
-            {renderFollowButton}
+            {isCurrentUserProfile ? renderEditProfileModal : renderFollowButton}
             <Modal open={isOpenFollower} onOpenChange={setIsOpenFollower}>
               <ModalTrigger asChild>
                 <div className="cursor-pointer h-full flex flex-col">
@@ -130,8 +150,11 @@ export default function Profile() {
                 </div>
                 <SelectSeparator />
                 <List
+                  loading={isLoadingFollowers}
+                  rootClassName="-mx-2 -mb-2"
+                  listClassName="space-y-1"
                   data={followers ?? []}
-                  renderItem={renderBasicUser}
+                  renderItem={userItemRenderer}
                   ListEmpty={
                     <Typography level="p4" className="m-auto w-fit">
                       No users
@@ -167,8 +190,10 @@ export default function Profile() {
                 </div>
                 <SelectSeparator />
                 <List
+                  loading={isLoadingFollowings}
+                  rootClassName="-mx-2 -mb-2"
                   data={followings ?? []}
-                  renderItem={renderBasicUser}
+                  renderItem={userItemRenderer}
                   ListEmpty={
                     <Typography level="p4" className="m-auto w-fit">
                       No users
@@ -179,6 +204,54 @@ export default function Profile() {
             </Modal>
           </div>
         </div>
+      </div>
+      <div>
+        <Tab.Root defaultValue="stories">
+          <Tab.List className="flex bg-neutral-plain-hover -mx-4">
+            <Tab.Trigger
+              value="stories"
+              className="flex-1 py-3 transition-all border-b-neutral-solid-hover data-[state=active]:border-b-2 data-[state=active]:!text-neutral-solid data-[state=inactive]:!text-text-secondary text-center cursor-pointer text-md"
+            >
+              Stories
+            </Tab.Trigger>
+            <Tab.Trigger
+              value="archieved"
+              className="flex-1 py-3 transition-all border-b-neutral-solid-hover data-[state=active]:border-b-2 data-[state=active]:!text-neutral-solid data-[state=inactive]:!text-text-secondary text-center cursor-pointer text-md"
+            >
+              Achieved
+            </Tab.Trigger>
+          </Tab.List>
+          <Tab.Content value="stories" className="-mx-4">
+            <div className="grid grid-cols-2">
+              <div className="h-[300px] w-full border-br border-neutral-0 flex items-center justify-center">
+                <PlusLine width={30} height={30} />
+              </div>
+              {Array(3)
+                .fill(null)
+                .map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-neutral-300 animate-pulse h-[300px] w-full odd:border-r border-neutral-0 border-b"
+                  />
+                ))}
+            </div>
+          </Tab.Content>
+          <Tab.Content value="archieved" className="-mx-4">
+            <div className="grid grid-cols-2">
+              <div className="h-[300px] w-full border-br border-neutral-0 flex items-center justify-center">
+                <PlusLine width={30} height={30} />
+              </div>
+              {Array(3)
+                .fill(null)
+                .map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-neutral-300 animate-pulse h-[300px] w-full odd:border-r border-neutral-0 border-b"
+                  />
+                ))}
+            </div>
+          </Tab.Content>
+        </Tab.Root>
       </div>
     </div>
   );
