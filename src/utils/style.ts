@@ -12,8 +12,13 @@ const modalAnimation = [
   "data-[state=open]:slide-in-from-top-[48%]",
 ];
 
+const accordionContentAnimation = [
+  "data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
+];
+
 const animation = {
   modalAnimation,
+  accordionContentAnimation,
 };
 
 export { animation };

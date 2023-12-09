@@ -26,7 +26,7 @@ export function Header() {
   );
 
   return (
-    <header className="h-[64px] fixed top-0 z-10 w-full sm:container p-4 bg-white border-b flex items-center">
+    <header className="h-[64px] fixed top-0 z-10 w-full container p-4 bg-white border-b flex items-center">
       {!user ? (
         renderAuthHeader
       ) : (

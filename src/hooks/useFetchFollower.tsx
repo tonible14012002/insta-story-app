@@ -11,6 +11,7 @@ export const useFetchFollower = (id?: string) => {
   );
   return {
     followers: data?.data,
+    baseData: data,
     ...props,
   };
 };

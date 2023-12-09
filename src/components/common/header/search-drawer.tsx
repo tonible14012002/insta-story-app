@@ -1,9 +1,11 @@
+import { identityService } from "@/apis";
 import { ROUTES } from "@/constants";
 import { useSearchUsers } from "@/hooks/useSearchUsers";
 import { useDebounce } from "@/libs/use-debounce";
 import { BaseResponse, User } from "@/schema";
 import {
   Avatar,
+  Button,
   IconButton,
   List,
   ModalClose,
@@ -11,16 +13,21 @@ import {
   TextFieldRoot,
   Typography,
 } from "@consolelabs/core";
-import { ArrowLeftLine } from "@consolelabs/icons";
+import { ArrowLeftLine, PlusLine } from "@consolelabs/icons";
 import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
+import { CustomHeader } from "./custom-header";
+import { useRouter } from "next/router";
 
 export const SearchUserDrawer = () => {
   const [searchValue, setSearchValue] = useState("");
   const [page, setPage] = useState(1);
   const searchDebounce = useDebounce(searchValue, 200);
+  const [loadingFollow, setLoadingFollow] = useState(false);
+  const [clickedFolowId, setClickedFollowId] = useState<string>();
+  const { back } = useRouter();
 
-  const { userCollections, size, setSize, isLoading } = useSearchUsers(
+  const { userCollections, setSize, mutate, isLoading } = useSearchUsers(
     {
       search: searchDebounce,
       page,
@@ -29,6 +36,7 @@ export const SearchUserDrawer = () => {
   );
 
   useEffect(() => {
+    // Reset serach page on search value change
     setPage(1);
   }, [searchDebounce]);
 
@@ -50,6 +58,44 @@ export const SearchUserDrawer = () => {
     }
   };
 
+  const renderFollowButton = (user: User) => (
+    <Button
+      size="sm"
+      color={user.is_followed ? "neutral" : "primary"}
+      loading={loadingFollow && user.id === clickedFolowId}
+      variant="outline"
+      onClick={async (e) => {
+        e.preventDefault();
+        setLoadingFollow(true);
+        setClickedFollowId(user.id);
+
+        const toggleFollow = user.is_followed
+          ? identityService.unfollowUser(user.id)
+          : identityService.followUser(user.id);
+        try {
+          // setIsLoadingFollow(true);
+          await toggleFollow;
+          // mutate();
+        } catch (e) {
+          console.log(e);
+        } finally {
+          await mutate();
+          setLoadingFollow(false);
+          setClickedFollowId(undefined);
+        }
+      }}
+    >
+      {user.is_followed ? (
+        <>Unfollow</>
+      ) : (
+        <>
+          <PlusLine />
+          Follow
+        </>
+      )}
+    </Button>
+  );
+
   const renderSearchItem = (userCollection: BaseResponse<User[]>) => {
     const { data: users } = userCollection;
     return (
@@ -62,23 +108,26 @@ export const SearchUserDrawer = () => {
                 className="flex gap-4 mx-2 px-2 py-4 hover:bg-neutral-plain-hover rounded-lg items-center"
               >
                 <Avatar src={user.avatar} size="lg" />
-                <div className="flex-1 flex flex-col gap-2">
-                  <Typography
-                    level="h7"
-                    className="line-clamp-1 tracking-tighter"
-                  >
-                    @_{user.nickname}
-                  </Typography>
-                  <Typography
-                    level="p6"
-                    className="line-clamp-1 flex gap-1"
-                    color="textSecondary"
-                  >
-                    <span>{user.total_followers}</span>
-                    <span>
-                      {user.total_followers > 1 ? " Followers" : "Follower"}
-                    </span>
-                  </Typography>
+                <div className="flex-1 flex gap-4 items-center">
+                  <div className="w-full flex flex-col gap-2">
+                    <Typography
+                      level="h7"
+                      className="line-clamp-1 tracking-tighter"
+                    >
+                      @_{user.nickname}
+                    </Typography>
+                    <Typography
+                      level="p6"
+                      className="line-clamp-1 flex gap-1"
+                      color="textSecondary"
+                    >
+                      <span>{user.total_followers}</span>
+                      <span>
+                        {user.total_followers > 1 ? " Followers" : "Follower"}
+                      </span>
+                    </Typography>
+                  </div>
+                  {renderFollowButton(user)}
                 </div>
               </Link>
             </ModalClose>
@@ -90,14 +139,7 @@ export const SearchUserDrawer = () => {
 
   return (
     <div className="h-full overflow-y-auto flex flex-col">
-      <div className="flex gap-4 items-center h-16 px-4">
-        <ModalClose asChild>
-          <IconButton variant="link" color="neutral">
-            <ArrowLeftLine className="text-lg" />
-          </IconButton>
-        </ModalClose>
-        <Typography level="h7">Search user</Typography>
-      </div>
+      <CustomHeader title="Search Users" closeModalOnBack />
       <div className="px-4 border-b">
         <TextFieldRoot size="lg">
           <TextFieldInput

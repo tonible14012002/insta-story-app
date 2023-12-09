@@ -25,6 +25,7 @@ import { PlusCircleOutlined, PlusLine } from "@consolelabs/icons";
 import { BasicUser } from "@/schema";
 import { ArchievedStories } from "@/components/profile/archieve-stories/archieve-stories";
 import * as Tab from "@radix-ui/react-tabs";
+import { StoryUploaderModal } from "@/components/profile/story-uploader-modal";
 
 export default function Profile() {
   const { query } = useRouter();
@@ -140,6 +141,9 @@ export default function Profile() {
                   "duration-200",
                   "container",
                   "max-w-md",
+                  "h-[500px]",
+                  "overflow-y-auto",
+                  "no-scrollbar",
                   ...animation.modalAnimation,
                 )}
               >
@@ -180,6 +184,9 @@ export default function Profile() {
                   "duration-200",
                   "container",
                   "max-w-md",
+                  "h-[500px]",
+                  "overflow-y-auto",
+                  "no-scrollbar",
                   ...animation.modalAnimation,
                 )}
               >
@@ -223,9 +230,22 @@ export default function Profile() {
           </Tab.List>
           <Tab.Content value="stories" className="-mx-4">
             <div className="grid grid-cols-2">
-              <div className="h-[300px] w-full border-br border-neutral-0 flex items-center justify-center">
-                <PlusLine width={30} height={30} />
-              </div>
+              <Modal>
+                <ModalTrigger asChild>
+                  <div className="cursor-pointer h-[300px] w-full border-br border-neutral-0 flex items-center justify-center">
+                    <PlusLine width={30} height={30} />
+                  </div>
+                </ModalTrigger>
+                <ModalContent
+                  className={clsx(
+                    ...animation.modalAnimation,
+                    "container h-screen !rounded-none",
+                    "!p-0",
+                  )}
+                >
+                  <StoryUploaderModal />
+                </ModalContent>
+              </Modal>
               {Array(3)
                 .fill(null)
                 .map((item, index) => (

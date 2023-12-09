@@ -1,4 +1,3 @@
-import { HALF_DAY, ONE_DAY, TWO_DAY } from "@/constants";
 import { BasicUser } from ".";
 
 export interface Story {
@@ -30,9 +29,12 @@ export type BasicStory = Pick<
 >;
 
 export interface CreateStoryParams {
-  duration: 5 | 10 | 15 | 30;
+  caption?: string;
+  alt_text?: string;
+  view_option: "ONLY_ME" | "EVERYONE";
+  duration: "5" | "10" | "15" | "30";
   media_url: string;
-  live_time: typeof ONE_DAY | typeof TWO_DAY | typeof HALF_DAY;
+  live_time: "4300" | "8600" | "17200";
   privacy_mode: "PUBLIC" | "PRIVATE" | "FRIEND_ONLY";
   users_to_exclude: string[];
   media_type: "VIDEO" | "IMAGE";
