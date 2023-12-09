@@ -1,3 +1,5 @@
+import { PaginationParams } from "./common";
+
 export type User = {
   avatar: string;
   gender: "MALE" | "FEMALE" | "OTHER";
@@ -41,4 +43,9 @@ export interface LoginResponse {
   access: string;
   refresh: string;
   user: User;
+}
+
+export interface SearchUserParams extends PaginationParams {
+  search?: string;
+  gender?: User["gender"];
 }

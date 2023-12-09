@@ -1,0 +1,3 @@
+export const SMALL_SIZE_PAGINATION = 20;
+
+export const LARGE_SIZE_PAGINATION = 100;

@@ -6,9 +6,11 @@ import {
   BaseResponse,
   BasicUser,
   LoginResponse,
+  SearchUserParams,
   User,
   UserRegistrationParams,
 } from "@/schema";
+import queryString from "query-string";
 
 class IdentityService extends Client {
   public setAuth() {
@@ -42,7 +44,6 @@ class IdentityService extends Client {
 
   public profile() {
     this.setAuth();
-    console.log(this.privateHeaders);
     return fetcher<BaseResponse<User>>(
       `${this.baseUrl}/api/identity-services/profile/`,
       {
@@ -54,7 +55,6 @@ class IdentityService extends Client {
 
   public profileById(id: string) {
     this.setAuth();
-    console.log(this.privateHeaders);
     return fetcher<BaseResponse<User>>(
       `${this.baseUrl}/api/user-services/profile/${id}/`,
       {
@@ -65,7 +65,6 @@ class IdentityService extends Client {
   }
   public getFollowerbyId(id: string) {
     this.setAuth();
-    console.log(this.privateHeaders);
     return fetcher<BaseResponse<BasicUser[]>>(
       `${this.baseUrl}/api/user-services/profile/${id}/followers/`,
       {
@@ -76,7 +75,6 @@ class IdentityService extends Client {
   }
   public getFollowingbyId(id: string) {
     this.setAuth();
-    console.log(this.privateHeaders);
     return fetcher<BaseResponse<BasicUser[]>>(
       `${this.baseUrl}/api/user-services/profile/${id}/followings/`,
       {
@@ -87,7 +85,6 @@ class IdentityService extends Client {
   }
   public followUser(id: string) {
     this.setAuth();
-    console.log(this.privateHeaders);
     return fetcher<BaseResponse<User>>(
       `${this.baseUrl}/api/user-services/profile/${id}/follow/`,
       {
@@ -98,7 +95,6 @@ class IdentityService extends Client {
   }
   public unfollowUser(id: string) {
     this.setAuth();
-    console.log(this.privateHeaders);
     return fetcher<BaseResponse<User>>(
       `${this.baseUrl}/api/user-services/profile/${id}/unfollow/`,
       {
@@ -110,9 +106,21 @@ class IdentityService extends Client {
 
   public allUsers() {
     this.setAuth();
-    console.log(this.privateHeaders);
     return fetcher<BaseResponse<User[]>>(
       `${this.baseUrl}/api/user-services/profile/`,
+      {
+        headers: this.privateHeaders,
+        method: "GET",
+      },
+    );
+  }
+
+  public searchUsers(params: SearchUserParams) {
+    this.setAuth();
+    return fetcher<BaseResponse<User[]>>(
+      `${
+        this.baseUrl
+      }/api/user-services/profile/search/?${queryString.stringify(params)}`,
       {
         headers: this.privateHeaders,
         method: "GET",
