@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
   Avatar,
   Button,
+  IconButton,
   Modal,
   ModalContent,
   ModalTrigger,
@@ -30,8 +31,10 @@ import { useAuthContext } from "@/context/auth";
 import { useForm } from "react-hook-form";
 import { CreateStoryParams } from "@/schema/story";
 import { Controller } from "react-hook-form";
-import { ChevronRightLine } from "@consolelabs/icons";
+import { ChevronRightLine, CloseLine } from "@consolelabs/icons";
 import { ExcludeUsersModal } from "./exclude-user-modal";
+import { useFetchUsersByIds } from "@/hooks/useFetchUserByIds";
+import { User } from "@/schema";
 
 const STEPS = {
   ONE: "Step1",
@@ -48,7 +51,7 @@ export const StoryUploaderModal = () => {
   const [step, setStep] = useState<Steps>(STEPS.ONE);
   const [selectedFile, setSelectedFile] = useState<Blob>();
   const [previewImage, setPreviewImage] = useState<string>();
-  const { setValue, control, handleSubmit, formState } =
+  const { setValue, control, handleSubmit, formState, watch } =
     useForm<CreateStoryParams>({
       defaultValues: {
         duration: "5",
@@ -64,6 +67,11 @@ export const StoryUploaderModal = () => {
   const { isValid } = formState;
 
   const { user } = useAuthContext();
+  const excludeUserIds = watch("users_to_exclude", []);
+  const { users: excludedUsers } = useFetchUsersByIds<User>({
+    user_ids: excludeUserIds,
+    detail: true,
+  });
 
   const onDrop: DropzoneOptions["onDrop"] = useCallback(
     (acceptFile: Blob[]) => {
@@ -102,33 +110,66 @@ export const StoryUploaderModal = () => {
   );
 
   const renderExcludeUserPicker = (
-    <Controller
-      name="users_to_exclude"
-      control={control}
-      render={({ field }) => (
-        <Modal>
-          <ModalTrigger className="w-full text-left flex justify-between items-center group">
-            <Typography level="h8" fontWeight="lg" className="tracking-tight">
-              Exclude users
-            </Typography>
-            <div className="flex items-center gap-4">
-              <Typography level="p6" color="textSecondary">
-                {field.value.length} users
+    <div className="flex flex-col">
+      <Controller
+        name="users_to_exclude"
+        control={control}
+        render={({ field }) => (
+          <Modal>
+            <ModalTrigger className="w-full text-left flex justify-between items-center group">
+              <Typography
+                level="h8"
+                fontWeight="lg"
+                className="tracking-tight py-2"
+              >
+                Exclude users
               </Typography>
-              <ChevronRightLine className=" group-hover:translate-x-[5px] transition" />
+              <div className="flex items-center gap-4">
+                <Typography level="p6" color="textSecondary">
+                  {field.value.length} users
+                </Typography>
+                <ChevronRightLine className=" group-hover:translate-x-[5px] transition" />
+              </div>
+            </ModalTrigger>
+            <ModalContent
+              className={clsx(
+                ...animation.accordionContentAnimation,
+                "max-w-md w-full !p-0 space-y-4 h-[600px] overflow-hidden",
+              )}
+            >
+              <ExcludeUsersModal
+                {...field}
+                selectedUsers={excludedUsers ?? []}
+              />
+            </ModalContent>
+          </Modal>
+        )}
+      />
+      <div className="max-h-[300px] overflow-y-auto space-y-2 -mx-4 px-4 py-4">
+        {excludedUsers?.map((u) => (
+          <div className="text-left flex items-center gap-4" key={u.id}>
+            <Avatar src={u.avatar} />
+            <div className="flex gap-4 items-center">
+              <Typography level="p5" className="line-clamp-1">
+                @_{u.nickname}
+              </Typography>
+              <IconButton
+                variant="ghost"
+                color="neutral"
+                onClick={() => {
+                  setValue(
+                    "users_to_exclude",
+                    excludeUserIds.filter((uid) => uid !== u.id),
+                  );
+                }}
+              >
+                <CloseLine />
+              </IconButton>
             </div>
-          </ModalTrigger>
-          <ModalContent
-            className={clsx(
-              ...animation.accordionContentAnimation,
-              "max-w-md w-full !p-0 space-y-4 h-[600px] overflow-hidden",
-            )}
-          >
-            <ExcludeUsersModal {...field} />
-          </ModalContent>
-        </Modal>
-      )}
-    />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 
   const renderCaptionField = (
@@ -258,7 +299,7 @@ export const StoryUploaderModal = () => {
 
   const renderPrivacyOptions = (
     <div className="flex gap-4 justify-between">
-      <Typography level="h8" fontWeight="lg" className="tracking-tight">
+      <Typography level="h8" fontWeight="lg" className="tracking-tight py-2">
         Privacy Mode
       </Typography>
       <Controller

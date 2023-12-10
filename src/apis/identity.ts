@@ -5,9 +5,11 @@ import JWTManager from "@/libs/jwt-manager";
 import {
   BaseResponse,
   BasicUser,
+  GetUserByIdsRequestBody,
   LoginResponse,
   SearchUserParams,
   User,
+  UserByIdsResponse,
   UserRegistrationParams,
 } from "@/schema";
 import queryString from "query-string";
@@ -124,6 +126,20 @@ class IdentityService extends Client {
       {
         headers: this.privateHeaders,
         method: "GET",
+      },
+    );
+  }
+
+  public getUserByIds<T extends User | BasicUser>(
+    body: GetUserByIdsRequestBody,
+  ) {
+    this.setAuth();
+    return fetcher<BaseResponse<UserByIdsResponse<T>>>(
+      `${this.baseUrl}/api/user-services/profile/ids/`,
+      {
+        headers: this.privateHeaders,
+        method: "POST",
+        body: JSON.stringify(body),
       },
     );
   }

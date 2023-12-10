@@ -49,3 +49,10 @@ export interface SearchUserParams extends PaginationParams {
   search?: string;
   gender?: User["gender"];
 }
+
+export interface GetUserByIdsRequestBody {
+  user_ids: string[];
+  detail?: boolean;
+}
+
+export type UserByIdsResponse<T extends User | BasicUser = BasicUser> = T[];

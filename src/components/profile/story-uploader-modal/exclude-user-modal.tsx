@@ -1,6 +1,3 @@
-import { ROUTES } from "@/constants";
-import { useAuthContext } from "@/context/auth";
-import { useFetchFollower } from "@/hooks/useFetchFollower";
 import { useSearchUsers } from "@/hooks/useSearchUsers";
 import { useDebounce } from "@/libs/use-debounce";
 import { BaseResponse, User } from "@/schema";
@@ -21,10 +18,11 @@ import { Fragment, useEffect, useState } from "react";
 interface ExcludeUsersModalProps {
   onChange?: (_: string[]) => void;
   value: string[];
+  selectedUsers: User[];
 }
 
 export const ExcludeUsersModal = (props: ExcludeUsersModalProps) => {
-  const { value, onChange } = props;
+  const { value, onChange, selectedUsers } = props;
   const [internalSelect, setInternalSelect] = useState<string[]>(value);
   const [search, setSearch] = useState<string>("");
   const [page, setPage] = useState(1);
@@ -116,7 +114,12 @@ export const ExcludeUsersModal = (props: ExcludeUsersModalProps) => {
     setPage(1);
   }, [debouncedSearch]);
 
-  useEffect(() => {}, []);
+  // useEffect(() => {
+  //   if (JSON.stringify(value) !== JSON.stringify(internalSelect)) {
+  //     setInternalSelect(value);
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [JSON.stringify(internalSelect), JSON.stringify(value)]);
 
   return (
     <form
@@ -144,6 +147,7 @@ export const ExcludeUsersModal = (props: ExcludeUsersModalProps) => {
           listClassName="space-y-1"
           onEndReachedThreshold={60}
           onEndReached={handleReachEndList}
+          // data={userCollections ?? [{ data: selectedUsers }]}
           data={userCollections ?? []}
           renderItem={renderSearchItem}
           ListEmpty={renderEmptyList}
