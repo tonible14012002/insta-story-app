@@ -12,17 +12,17 @@ import {
   Typography,
 } from "@consolelabs/core";
 import { UserSolid } from "@consolelabs/icons";
-import Link from "next/link";
-import { Fragment, useEffect, useState } from "react";
+import { FormEventHandler, useEffect, useState } from "react";
 
 interface ExcludeUsersModalProps {
   onChange?: (_: string[]) => void;
   value: string[];
   selectedUsers: User[];
+  onClose: () => void;
 }
 
 export const ExcludeUsersModal = (props: ExcludeUsersModalProps) => {
-  const { value, onChange, selectedUsers } = props;
+  const { value, onChange, selectedUsers, onClose } = props;
   const [internalSelect, setInternalSelect] = useState<string[]>(value);
   const [search, setSearch] = useState<string>("");
   const [page, setPage] = useState(1);
@@ -55,7 +55,7 @@ export const ExcludeUsersModal = (props: ExcludeUsersModalProps) => {
             htmlFor={`exclude_user_${user.id}`}
             className="flex text-left gap-4 mx-2 px-2 py-4 hover:bg-neutral-plain-hover rounded-lg items-center"
           >
-            <Avatar src={user.avatar} />
+            <Avatar src={user.avatar ?? ""} />
             <div className="flex-1 flex gap-4 items-center">
               <div className="w-full flex flex-col">
                 <Typography
@@ -109,6 +109,13 @@ export const ExcludeUsersModal = (props: ExcludeUsersModalProps) => {
     </div>
   );
 
+  const handleSubmitExcludeUsers: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onChange?.(internalSelect);
+    onClose();
+  };
+
   useEffect(() => {
     // Reset serach page on search value change
     setPage(1);
@@ -122,13 +129,7 @@ export const ExcludeUsersModal = (props: ExcludeUsersModalProps) => {
   // }, [JSON.stringify(internalSelect), JSON.stringify(value)]);
 
   return (
-    <form
-      className="h-full flex flex-col"
-      onSubmit={(e) => {
-        e.preventDefault();
-        onChange?.(internalSelect);
-      }}
-    >
+    <form className="h-full flex flex-col" onSubmit={handleSubmitExcludeUsers}>
       <div className="p-4 space-y-4">
         <Typography>Exclude Users</Typography>
         <TextFieldRoot>
@@ -147,8 +148,12 @@ export const ExcludeUsersModal = (props: ExcludeUsersModalProps) => {
           listClassName="space-y-1"
           onEndReachedThreshold={60}
           onEndReached={handleReachEndList}
-          // data={userCollections ?? [{ data: selectedUsers }]}
-          data={userCollections ?? []}
+          data={
+            userCollections ?? [
+              { data: Boolean(value.length) ? selectedUsers : [] },
+            ]
+          }
+          // data={userCollections ?? []}
           renderItem={renderSearchItem}
           ListEmpty={renderEmptyList}
         />

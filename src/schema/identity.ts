@@ -1,7 +1,7 @@
 import { PaginationParams } from "./common";
 
 export type User = {
-  avatar: string;
+  avatar?: string;
   gender: "MALE" | "FEMALE" | "OTHER";
   city: string;
   country: "US";
@@ -20,7 +20,7 @@ export type User = {
 
 export type BasicUser = {
   id: string;
-  avatar: string;
+  avatar?: string;
   nickname: string;
   first_name: string;
   last_name: string;

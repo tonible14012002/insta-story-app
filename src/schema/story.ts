@@ -28,7 +28,7 @@ export type BasicStory = Pick<
   | "owner"
 >;
 
-export interface CreateStoryParams {
+export interface CreateStoryBody {
   caption?: string;
   alt_text?: string;
   view_option: "ONLY_ME" | "EVERYONE";

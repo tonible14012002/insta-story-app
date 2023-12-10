@@ -29,47 +29,54 @@ import Image from "next/image";
 import { animation } from "@/utils/style";
 import { useAuthContext } from "@/context/auth";
 import { useForm } from "react-hook-form";
-import { CreateStoryParams } from "@/schema/story";
 import { Controller } from "react-hook-form";
 import { ChevronRightLine, CloseLine } from "@consolelabs/icons";
 import { ExcludeUsersModal } from "./exclude-user-modal";
 import { useFetchUsersByIds } from "@/hooks/useFetchUserByIds";
 import { User } from "@/schema";
+import { storyService } from "@/apis";
+import { CreateStoryBody } from "@/schema/story";
 
 const STEPS = {
   ONE: "Step1",
   TWO: "Step2",
+  THREE: "Step3",
 } as const;
 type Steps = (typeof STEPS)[keyof typeof STEPS];
 
 const TitleStepMapper = {
   [STEPS.ONE]: "Upload New Story",
   [STEPS.TWO]: "Edit Your Story",
+  [STEPS.THREE]: "Done",
 };
 
 export const StoryUploaderModal = () => {
   const [step, setStep] = useState<Steps>(STEPS.ONE);
   const [selectedFile, setSelectedFile] = useState<Blob>();
   const [previewImage, setPreviewImage] = useState<string>();
-  const { setValue, control, handleSubmit, formState, watch } =
-    useForm<CreateStoryParams>({
-      defaultValues: {
-        duration: "5",
-        live_time: "8600",
-        privacy_mode: "PUBLIC",
-        users_to_exclude: [],
-        media_type: "IMAGE",
-        media_url: "",
-        view_option: "EVERYONE",
-        alt_text: "",
-      },
-    });
+  const [openExcludeModal, setOpenExcludeModal] = useState<boolean>(false);
+  const [isUploading, setIsUploading] = useState(false);
+
+  const { setValue, control, handleSubmit, formState, watch } = useForm<
+    Omit<CreateStoryBody, "media_url">
+  >({
+    defaultValues: {
+      duration: "5",
+      live_time: "8600",
+      privacy_mode: "PUBLIC",
+      users_to_exclude: [],
+      media_type: "IMAGE",
+      view_option: "EVERYONE",
+      alt_text: "",
+    },
+  });
   const { isValid } = formState;
 
   const { user } = useAuthContext();
-  const excludeUserIds = watch("users_to_exclude", []);
+  const watchUsersToExclude = watch("users_to_exclude", []);
+
   const { users: excludedUsers } = useFetchUsersByIds<User>({
-    user_ids: excludeUserIds,
+    user_ids: watchUsersToExclude,
     detail: true,
   });
 
@@ -92,8 +99,20 @@ export const StoryUploaderModal = () => {
     },
   });
 
-  const onSubmit = (data: CreateStoryParams) => {
-    console.log(data);
+  const onSubmit = async (data: Omit<CreateStoryBody, "media_url">) => {
+    if (!previewImage || !selectedFile) return;
+    try {
+      const requestBody = { ...data, media_url: "https://oijoijasdioj.com" };
+      setIsUploading(true);
+      const { data: responseData } =
+        await storyService.createStory(requestBody);
+      console.log(responseData);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setStep(STEPS.THREE);
+      setIsUploading(false);
+    }
   };
 
   const renderStepOne = (
@@ -112,10 +131,11 @@ export const StoryUploaderModal = () => {
   const renderExcludeUserPicker = (
     <div className="flex flex-col">
       <Controller
+        disabled={isUploading}
         name="users_to_exclude"
         control={control}
         render={({ field }) => (
-          <Modal>
+          <Modal onOpenChange={setOpenExcludeModal} open={openExcludeModal}>
             <ModalTrigger className="w-full text-left flex justify-between items-center group">
               <Typography
                 level="h8"
@@ -140,40 +160,43 @@ export const StoryUploaderModal = () => {
               <ExcludeUsersModal
                 {...field}
                 selectedUsers={excludedUsers ?? []}
+                onClose={() => setOpenExcludeModal(false)}
               />
             </ModalContent>
           </Modal>
         )}
       />
       <div className="max-h-[300px] overflow-y-auto space-y-2 -mx-4 px-4 py-4">
-        {excludedUsers?.map((u) => (
-          <div className="text-left flex items-center gap-4" key={u.id}>
-            <Avatar src={u.avatar} />
-            <div className="flex gap-4 items-center">
-              <Typography level="p5" className="line-clamp-1">
-                @_{u.nickname}
-              </Typography>
-              <IconButton
-                variant="ghost"
-                color="neutral"
-                onClick={() => {
-                  setValue(
-                    "users_to_exclude",
-                    excludeUserIds.filter((uid) => uid !== u.id),
-                  );
-                }}
-              >
-                <CloseLine />
-              </IconButton>
+        {Boolean(watchUsersToExclude.length) &&
+          excludedUsers?.map((u) => (
+            <div className="text-left flex items-center gap-4" key={u.id}>
+              <Avatar src={u.avatar ?? ""} />
+              <div className="flex gap-4 items-center">
+                <Typography level="p5" className="line-clamp-1">
+                  @_{u.nickname}
+                </Typography>
+                <IconButton
+                  variant="ghost"
+                  color="neutral"
+                  onClick={() => {
+                    setValue(
+                      "users_to_exclude",
+                      watchUsersToExclude.filter((uid) => uid !== u.id),
+                    );
+                  }}
+                >
+                  <CloseLine />
+                </IconButton>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );
 
   const renderCaptionField = (
     <Controller
+      disabled={isUploading}
       name="caption"
       control={control}
       render={({ field }) => (
@@ -199,6 +222,7 @@ export const StoryUploaderModal = () => {
         Duration
       </Typography>
       <Controller
+        disabled={isUploading}
         name="duration"
         control={control}
         render={({ field }) => (
@@ -223,6 +247,7 @@ export const StoryUploaderModal = () => {
         Expire in
       </Typography>
       <Controller
+        disabled={isUploading}
         name="live_time"
         control={control}
         render={({ field }) => (
@@ -251,6 +276,7 @@ export const StoryUploaderModal = () => {
       <div className="flex items-center gap-4">
         <Image width={50} height={50} src={previewImage ?? ""} alt="preview" />
         <Controller
+          disabled={isUploading}
           name="alt_text"
           control={control}
           render={({ field }) => (
@@ -271,6 +297,7 @@ export const StoryUploaderModal = () => {
             Hide view counts on this post
           </Typography>
           <Controller
+            disabled={isUploading}
             control={control}
             name="view_option"
             render={({ field }) => (
@@ -303,6 +330,7 @@ export const StoryUploaderModal = () => {
         Privacy Mode
       </Typography>
       <Controller
+        disabled={isUploading}
         control={control}
         name="privacy_mode"
         render={({ field }) => (
@@ -410,6 +438,28 @@ export const StoryUploaderModal = () => {
     </TabsContent>
   );
 
+  const renderStepThree = (
+    <TabsContent value={STEPS.THREE} className="data-[state=active]:flex-1">
+      <div className="flex flex-col items-center justify-center flex-1">
+        <div className="w-md text-center flex flex-col gap-1">
+          <Typography level="h6">Uploaded Story.</Typography>
+          <Typography level="p5">
+            Congratulation! you just uploaded new story.
+          </Typography>
+          <Image
+            src={previewImage ?? ""}
+            width={300}
+            height={300}
+            layout="responsive"
+          />
+          <Button variant="link" asChild>
+            <Typography>Click here to preview it</Typography>
+          </Button>
+        </div>
+      </div>
+    </TabsContent>
+  );
+
   useEffect(() => {
     if (selectedFile) {
       const image = URL.createObjectURL(selectedFile);
@@ -423,9 +473,15 @@ export const StoryUploaderModal = () => {
     <div className={clsx("h-full w-full flex flex-col")}>
       <CustomHeader
         title={TitleStepMapper[step]}
-        closeModalOnBack={step === STEPS.ONE}
+        closeModalOnBack={step === STEPS.ONE || step === STEPS.THREE}
         // Return prevstep, if at step one, close modal
-        onBack={step === STEPS.ONE ? undefined : () => setStep(STEPS.ONE)}
+        onBack={
+          {
+            [STEPS.ONE]: undefined,
+            [STEPS.TWO]: () => setStep(STEPS.ONE),
+            [STEPS.THREE]: undefined,
+          }[step]
+        }
         className="border-b"
       />
       <Tabs
@@ -434,6 +490,7 @@ export const StoryUploaderModal = () => {
       >
         {renderStepOne}
         {renderStepTwo}
+        {renderStepThree}
       </Tabs>
     </div>
   );

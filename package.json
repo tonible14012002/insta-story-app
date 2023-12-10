@@ -19,6 +19,7 @@
     "@mochi-ui/core": "^0.8.0",
     "@mochi-ui/theme": "^0.9.0",
     "@radix-ui/react-tabs": "^1.0.4",
+    "cloudinary": "^1.41.0",
     "clsx": "^2.0.0",
     "isomorphic-unfetch": "^4.0.2",
     "jwt-decode": "^4.0.0",
