@@ -15,6 +15,7 @@ import { UserSolid } from "@consolelabs/icons";
 import { identityService } from "@/apis";
 import JWTManager from "@/libs/jwt-manager";
 import { useAuthContext } from "@/context/auth";
+import { toast } from "react-hot-toast";
 
 interface LoginFormValue {
   username: string;
@@ -34,15 +35,17 @@ export function LoginForm() {
       JWTManager?.setRefreshToken(refresh);
 
       setUser(user);
-    } catch (e) {
-      alert(JSON.stringify(e));
+    } catch (e: any) {
+      toast.error(
+        <Typography level="h8">User&apos;s credential not found</Typography>,
+      );
     }
   };
 
   return (
-    <div className="py-8 px-8 bg-black/40 h-screen flex items-center justify-center">
+    <div className="fixed h-screen flex flex-col items-center justify-center inset-0">
       <form
-        className="w-md bg-white p-4 rounded-md min-w-[400px]"
+        className="w-md bg-white p-4 rounded-md min-w-[400px] -translate-y-[100px]"
         onSubmit={handleSubmit(onSubmit)}
       >
         <Typography level="h5" className="text-neutral-500">

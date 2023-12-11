@@ -36,6 +36,8 @@ import { useFetchUsersByIds } from "@/hooks/useFetchUserByIds";
 import { User } from "@/schema";
 import { storyService } from "@/apis";
 import { CreateStoryBody } from "@/schema/story";
+import toast from "react-hot-toast";
+import { uploaderService } from "@/apis/uploader";
 
 const STEPS = {
   ONE: "Step1",
@@ -50,7 +52,12 @@ const TitleStepMapper = {
   [STEPS.THREE]: "Done",
 };
 
-export const StoryUploaderModal = () => {
+interface StoryUploaderModalProps {
+  onSuccess?: () => void;
+}
+
+export const StoryUploaderModal = (props: StoryUploaderModalProps) => {
+  const { onSuccess } = props;
   const [step, setStep] = useState<Steps>(STEPS.ONE);
   const [selectedFile, setSelectedFile] = useState<Blob>();
   const [previewImage, setPreviewImage] = useState<string>();
@@ -68,6 +75,7 @@ export const StoryUploaderModal = () => {
       media_type: "IMAGE",
       view_option: "EVERYONE",
       alt_text: "",
+      caption: "",
     },
   });
   const { isValid } = formState;
@@ -102,15 +110,24 @@ export const StoryUploaderModal = () => {
   const onSubmit = async (data: Omit<CreateStoryBody, "media_url">) => {
     if (!previewImage || !selectedFile) return;
     try {
-      const requestBody = { ...data, media_url: "https://oijoijasdioj.com" };
+      const { url } = await uploaderService.uploadImage(selectedFile);
+
+      const requestBody = {
+        ...data,
+        caption: data.caption || "",
+        media_url: url,
+        alt_text: data.alt_text || "image story",
+      };
       setIsUploading(true);
       const { data: responseData } =
         await storyService.createStory(requestBody);
       console.log(responseData);
+      setStep(STEPS.THREE);
+      onSuccess?.();
     } catch (e) {
+      toast("Error during post image");
       console.log(e);
     } finally {
-      setStep(STEPS.THREE);
       setIsUploading(false);
     }
   };
@@ -209,6 +226,7 @@ export const StoryUploaderModal = () => {
             "font-light",
             "bg-neutral-100",
           )}
+          defaultValue=""
           {...field}
         />
       )}
