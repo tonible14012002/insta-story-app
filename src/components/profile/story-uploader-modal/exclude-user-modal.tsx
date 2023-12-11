@@ -121,13 +121,6 @@ export const ExcludeUsersModal = (props: ExcludeUsersModalProps) => {
     setPage(1);
   }, [debouncedSearch]);
 
-  // useEffect(() => {
-  //   if (JSON.stringify(value) !== JSON.stringify(internalSelect)) {
-  //     setInternalSelect(value);
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [JSON.stringify(internalSelect), JSON.stringify(value)]);
-
   return (
     <form className="h-full flex flex-col" onSubmit={handleSubmitExcludeUsers}>
       <div className="p-4 space-y-4">
@@ -148,12 +141,7 @@ export const ExcludeUsersModal = (props: ExcludeUsersModalProps) => {
           listClassName="space-y-1"
           onEndReachedThreshold={60}
           onEndReached={handleReachEndList}
-          data={
-            userCollections ?? [
-              { data: Boolean(value.length) ? selectedUsers : [] },
-            ]
-          }
-          // data={userCollections ?? []}
+          data={userCollections ?? [{ data: selectedUsers }]}
           renderItem={renderSearchItem}
           ListEmpty={renderEmptyList}
         />

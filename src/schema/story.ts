@@ -1,4 +1,4 @@
-import { BasicUser } from ".";
+import { BasicUser, User } from ".";
 
 export interface Story {
   id: string;
@@ -15,6 +15,10 @@ export interface Story {
   media_type: "VIDEO" | "IMAGE";
   owner: BasicUser;
 }
+
+export type GetStoriesParams = {
+  owner_id?: User["id"];
+};
 
 export type BasicStory = Pick<
   Story,

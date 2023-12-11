@@ -3,7 +3,13 @@ import fetcher from "@/libs/fetcher";
 import JWTManager from "@/libs/jwt-manager";
 
 import { BaseResponse } from "@/schema";
-import { BasicStory, CreateStoryBody, Story } from "@/schema/story";
+import {
+  BasicStory,
+  CreateStoryBody,
+  GetStoriesParams,
+  Story,
+} from "@/schema/story";
+import queryString from "query-string";
 
 class StoryService extends Client {
   public setAuth() {
@@ -25,10 +31,12 @@ class StoryService extends Client {
     );
   }
 
-  public getStories() {
+  public getStories(params: GetStoriesParams) {
     this.setAuth();
     return fetcher<BaseResponse<BasicStory[]>>(
-      `${this.baseUrl}/api/story-services/following/`,
+      `${this.baseUrl}/api/story-services/following/?${queryString.stringify(
+        params,
+      )}`,
       {
         headers: this.privateHeaders,
         method: "GET",

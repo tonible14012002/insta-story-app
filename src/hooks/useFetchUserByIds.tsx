@@ -6,9 +6,10 @@ const FETCH_USER_BY_IDS_KEY = "FETCH_USER_BY_IDS_KEY";
 
 export const useFetchUsersByIds = <T extends BasicUser | User>(
   body: GetUserByIdsRequestBody,
+  allowFetch: boolean = true,
 ) => {
   const { data, ...rest } = useFetchWithCache(
-    body.user_ids.length
+    allowFetch
       ? [FETCH_USER_BY_IDS_KEY, JSON.stringify(body.user_ids), body.detail]
       : null,
     () => identityService.getUserByIds<T>(body),

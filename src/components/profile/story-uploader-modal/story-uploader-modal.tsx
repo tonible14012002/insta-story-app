@@ -167,29 +167,28 @@ export const StoryUploaderModal = () => {
         )}
       />
       <div className="max-h-[300px] overflow-y-auto space-y-2 -mx-4 px-4 py-4">
-        {Boolean(watchUsersToExclude.length) &&
-          excludedUsers?.map((u) => (
-            <div className="text-left flex items-center gap-4" key={u.id}>
-              <Avatar src={u.avatar ?? ""} />
-              <div className="flex gap-4 items-center">
-                <Typography level="p5" className="line-clamp-1">
-                  @_{u.nickname}
-                </Typography>
-                <IconButton
-                  variant="ghost"
-                  color="neutral"
-                  onClick={() => {
-                    setValue(
-                      "users_to_exclude",
-                      watchUsersToExclude.filter((uid) => uid !== u.id),
-                    );
-                  }}
-                >
-                  <CloseLine />
-                </IconButton>
-              </div>
+        {excludedUsers?.map((u) => (
+          <div className="text-left flex items-center gap-4" key={u.id}>
+            <Avatar src={u.avatar ?? ""} />
+            <div className="flex gap-4 items-center">
+              <Typography level="p5" className="line-clamp-1">
+                @_{u.nickname}
+              </Typography>
+              <IconButton
+                variant="ghost"
+                color="neutral"
+                onClick={() => {
+                  setValue(
+                    "users_to_exclude",
+                    watchUsersToExclude.filter((uid) => uid !== u.id),
+                  );
+                }}
+              >
+                <CloseLine />
+              </IconButton>
             </div>
-          ))}
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -447,6 +446,7 @@ export const StoryUploaderModal = () => {
             Congratulation! you just uploaded new story.
           </Typography>
           <Image
+            alt="pewview"
             src={previewImage ?? ""}
             width={300}
             height={300}
