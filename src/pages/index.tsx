@@ -6,6 +6,9 @@ import { BasicStory } from "@/schema/story";
 import { Avatar, Typography, Button } from "@mochi-ui/core";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { ROUTES } from "@/constants";
+import { Plus } from "lucide-react";
 
 export default function Home() {
   const { user } = useAuthContext();
@@ -28,9 +31,12 @@ interface StoryViewFeedProps {
 }
 
 const StoryViewFeedCard = (props: StoryViewFeedProps) => {
-  const { story, onFollowChanged } = props;
+  const { story } = props;
+  const { user } = useAuthContext();
+  const [isFollowed, setIsFollowed] = useState(story.owner.is_followed);
   const [isLoadingFollow, setIsLoadingFollow] = useState(false);
-  const isCurrentUser = story.owner.is_followed;
+  const isCurrentUser = story.owner.id === user?.id;
+
   const renderFollowButton = isCurrentUser ? null : (
     <Button
       variant="outline"
@@ -38,13 +44,13 @@ const StoryViewFeedCard = (props: StoryViewFeedProps) => {
       loading={isLoadingFollow}
       className="!text-[10px] h-6 !px-2 rounded-md"
       onClick={async () => {
-        const toggleFollow = story.owner?.is_followed
+        const toggleFollow = isFollowed
           ? identityService.unfollowUser(story.owner?.id)
           : identityService.followUser(story.owner?.id as string);
         try {
           setIsLoadingFollow(true);
           await toggleFollow;
-          await onFollowChanged?.();
+          setIsFollowed(!isFollowed);
         } catch (e) {
           console.log(e);
         } finally {
@@ -52,15 +58,21 @@ const StoryViewFeedCard = (props: StoryViewFeedProps) => {
         }
       }}
     >
-      Follow
+      {isFollowed ? (
+        "Unfollow"
+      ) : (
+        <>
+          <Plus width={10} height={10} /> Follow
+        </>
+      )}
     </Button>
   );
   return (
     <div className="flex gap-3 items-start w-full" key={story.id}>
       <div className="flex flex-col justify-start gap-2 items-center h-full">
-        <div>
+        <Link href={ROUTES.USER_PROFILE(story.owner.id)}>
           <Avatar src={story.owner.avatar ?? ""} size="sm" />
-        </div>
+        </Link>
         <div className="flex-1 w-px bg-text-tertiary h-full" />
       </div>
       <div className="flex flex-col w-full">
