@@ -1,5 +1,5 @@
-import { IconButton, ModalClose, Typography } from "@consolelabs/core";
-import { ArrowLeftLine } from "@consolelabs/icons";
+import { IconButton, ModalClose, Typography } from "@mochi-ui/core";
+import { ArrowLeft } from "lucide-react";
 import clsx from "clsx";
 import Link from "next/link";
 import { Fragment, PropsWithChildren, ReactNode } from "react";
@@ -38,7 +38,7 @@ export const CustomHeader = (props: CustomHeaderProps) => {
         renderBackLinkWrapper(
           <CloseModal>
             <IconButton variant="ghost" color="neutral" onClick={onBack}>
-              <ArrowLeftLine className="text-lg" />
+              <ArrowLeft className="text-lg" />
             </IconButton>
           </CloseModal>,
         )}

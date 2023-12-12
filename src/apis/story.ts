@@ -54,6 +54,27 @@ class StoryService extends Client {
       },
     );
   }
+  public viewStory(id: string) {
+    this.setAuth();
+    return fetcher<BaseResponse<boolean>>(
+      `${this.baseUrl}/api/story-services/stories/${id}/view/`,
+      {
+        headers: this.privateHeaders,
+        method: "POST",
+      },
+    );
+  }
+
+  public getStoryDetail(id: string) {
+    this.setAuth();
+    return fetcher<BaseResponse<Story>>(
+      `${this.baseUrl}/api/story-services/stories/${id}/`,
+      {
+        headers: this.privateHeaders,
+        method: "GET",
+      },
+    );
+  }
 }
 
 const storyService = new StoryService();

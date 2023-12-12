@@ -10,9 +10,9 @@ import {
   List,
   SelectSeparator,
   Avatar,
-} from "@consolelabs/core";
+} from "@mochi-ui/core";
 import { identityService } from "@/apis";
-import { PlusLine } from "@consolelabs/icons";
+import { Plus as PlusLine } from "lucide-react";
 import { animation } from "@/utils/style";
 import { ROUTES } from "@/constants";
 import { useState } from "react";
@@ -99,7 +99,7 @@ export const ProfileHeadSection = (props: ProfileHeadSectionProps) => {
     <Link key={user.id} href={ROUTES.USER_PROFILE(user.id)}>
       <ModalClose asChild>
         <div className="flex flex-row gap-4 items-center hover:gap-5 transition-all px-2 hover:bg-neutral-plain-hover py-2 rounded-md">
-          <Avatar src={user.avatar as string} />
+          <Avatar src={user.avatar ?? ""} />
           <Typography level="h7" className="line-clamp-1">
             @_{user.nickname}
           </Typography>

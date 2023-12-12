@@ -11,21 +11,12 @@ dependencies:
   "@cloudinary/url-gen":
     specifier: ^1.14.0
     version: 1.14.0
-  "@consolelabs/core":
-    specifier: ^0.4.0
-    version: 0.4.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-  "@consolelabs/icons":
-    specifier: ^0.2.1
-    version: 0.2.1(react-dom@18.2.0)(react@18.2.0)
-  "@consolelabs/theme":
-    specifier: ^0.5.0
-    version: 0.5.0(tailwindcss@3.3.6)
   "@mochi-ui/core":
-    specifier: ^0.8.0
-    version: 0.8.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(ioredis@5.3.2)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)(typescript@5.3.3)
-  "@mochi-ui/theme":
     specifier: ^0.9.0
-    version: 0.9.0(tailwindcss@3.3.6)
+    version: 0.9.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(ioredis@5.3.2)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)(typescript@5.3.3)
+  "@mochi-ui/theme":
+    specifier: ^0.10.0
+    version: 0.10.0(tailwindcss@3.3.6)
   "@radix-ui/react-tabs":
     specifier: ^1.0.4
     version: 1.0.4(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
@@ -222,427 +213,7 @@ packages:
       "@cloudinary/transformation-builder-sdk": 1.9.0
     dev: false
 
-  /@consolelabs/accordion@0.1.3(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-b7zjR3WWB4Cy6DSLskCBaLcygfxgKA4+njJFRAeNRpzqa2PYpndXkQUJfY+3SyjLzBamp1PuDeR1xWTLiYNGAw==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/icons": 0.2.1(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@radix-ui/react-accordion": 1.1.2(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/alert@0.1.3(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-c8bAUhNENpHinK4FrutsnTS6v8EB17tV40fxDO4ujuXuHabwGrpqAcT5loAM1ZGYyb81ioNJvopcOxrRXuIwlw==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/icons": 0.2.1(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/avatar@0.0.13(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-zT70Pb6T9m3kHlDa+amTcppQeU8w0mXYRmZxWkCGoI4fXYu6uoIhtSS9BrXEdaZ1LJAAr0yxZ3H5bis/WbK25w==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@radix-ui/react-avatar": 1.0.4(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/badge@0.2.2(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-Ld96ssMTHEiDn5NoDsoEc42zJmBL1hK3rOR8w58b2Tci5BhNXBPb8kuGsjmV+Yn1YM9DwV9pHRmpmtcsofz7cw==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/button@0.3.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-uAZpc40avmPhyeTTMAKnIAZs38n3BBFj6g2MEz0644Y7BfbmTfFe89l8Nscc0kau1JrZBy5vskythQuI7OCkLQ==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/icons": 0.2.1(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/polymorphic": 0.0.2(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/checkbox@0.1.3(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-FNuDD81CKgjGRMCk81LBmYirGtpAQKPEtJXxHZnCa/JYurlF/ugYDcByB8Q10aAcNqcyR502I86hAzGrJVK5TA==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/icons": 0.2.1(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@radix-ui/react-checkbox": 1.0.4(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      class-variance-authority: 0.7.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/core@0.4.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-9acoSLbxZOWOe27eftAQziy1s9aBQcWtAqnqi2goz+wpMIO1FSTeMbonJmn7R6l0OBsbrqeXZZvGpaxd10eNCQ==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/accordion": 0.1.3(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/alert": 0.1.3(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/avatar": 0.0.13(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/badge": 0.2.2(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/button": 0.3.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/checkbox": 0.1.3(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/dropdown": 0.1.3(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/form": 0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/heading": 0.0.5(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/icon-button": 0.4.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/icons": 0.2.1(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/input": 0.2.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/input-field": 0.1.4(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/label": 0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/layout": 0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/list": 0.0.13(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/login-widget": 0.1.4(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/logo": 0.1.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/mochi-store": 0.0.2(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/modal": 0.2.2(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/page-content": 0.1.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/page-header": 0.2.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/popover": 0.2.1(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/profile-badge": 0.1.1(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/section-list": 0.0.12(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/select": 0.1.2(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/sidebar": 0.0.16(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/switch": 0.0.11(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/table": 0.1.8(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@consolelabs/toggle-button": 0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/tooltip": 0.2.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/typography": 0.0.6(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - immer
-      - supports-color
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/dropdown@0.1.3(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-8czk56jkXtLytyTFJy0GwzmD2bW1oF9Mqd9ixEwL6S/23ZPvVWjL9M4Iv9nkH2nATBpRCJWFTbDG4ZVPd1W5Rg==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/icons": 0.2.1(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@radix-ui/react-dropdown-menu": 2.0.6(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/form-context@0.1.0(react-dom@18.2.0)(react@18.2.0):
-    resolution:
-      {
-        integrity: sha512-nQmnu4kdU/eS0YFF22NCbXs+g3YcwsffY/crMDTu6J2GbDw9tn+0ycVG6miMywMktTCrkUmXeg6E9FqlR9dHrQ==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@consolelabs/form@0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-AKGvvJ1Co9UpYqN1UPI0nyUxtZis2kdZ61zrRjaVXQNnxqZwOjWrG0sQ60b4vrHyrod1JZcKI3SFiDA2EHOPDA==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/form-context": 0.1.0(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/label": 0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/polymorphic": 0.0.2(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/heading@0.0.5(react-dom@18.2.0)(react@18.2.0):
-    resolution:
-      {
-        integrity: sha512-ykLmjdnJ20FpZCM8fz1iQj4SSblyZAQPOWW7tjb6WZZ4c9vvo6B8yzdNc6lIJnVtQx48hEXpRonsA35jdqw/aQ==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@consolelabs/icon-button@0.4.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-oQZ/pY3cab398sCPhSv/+jAKKkjTXv4aKbEQroiKyQx0o/ZSGqk0tmwuxFd2EOT+ZZ42zzKOxyTjVRxLH31+3Q==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/icons": 0.2.1(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/polymorphic": 0.0.2(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      class-variance-authority: 0.7.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/icons@0.2.1(react-dom@18.2.0)(react@18.2.0):
-    resolution:
-      {
-        integrity: sha512-/K8sNIQ22Zr1pU0kyf67JYbVGhIMEK6bPs6at+gk8/9S6EQyV9X9kchKLhqNyWjjCGUQo5XEBJ5gzzCgDxAgjA==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@consolelabs/input-field@0.1.4(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-Pn4pIC7DC+Lo7qPM8JobgjA0Q67ctiqXvYdITzb4YJzs7l1SWBv0e1ZT5y5FPZ/sNxUeDlrWZcwcUxEM7koQZA==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/input@0.2.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-i7Gb8o7janDmLD8XRvATzJN/1RaM8QnUKh3PcMswCRb29hEEeZppffwd2wz36ztsw6mZf6IJjs1DIghvsBPlqg==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/form-context": 0.1.0(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/polymorphic": 0.0.2(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      class-variance-authority: 0.7.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/label@0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-X6u3F3AZg24TWLkXA5bP+7eiA+nF275iAcfXGA+KmDOe4uzrs3yuGvTHwbLmodsvtSG7ZqyFHpAbTw+cLrSwYA==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@radix-ui/react-label": 2.0.2(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/layout@0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-IVARb4qHp2U0Q/wcgUE2TQdqGwfglL0jSP3JDhiSJOLEZenTqP2Pgvy/pqCkMr4i3DT1ivi9txIHtII/syQyiw==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/sidebar": 0.0.16(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/list@0.0.13(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-z2uaG0zCXNcNBxYl6HDUWObFqf5hyY/WUGoxdujk5tRqLmg+jsmPirDqdak9tfQGYBOj8ZQt0V+BT92VHQeNFA==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@radix-ui/react-scroll-area": 1.0.5(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      class-variance-authority: 0.7.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/login-widget@0.1.4(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-VxZqbE1ApD3kBAYQgywdFnlrhA9PiOeNr2m+npbxMU3784ZIOVh1YqFgKo5Kxne+ecj6jmAgh4wHDYq6tTlftA==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/button": 0.3.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/dropdown": 0.1.3(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/heading": 0.0.5(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/icons": 0.2.1(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/mochi-store": 0.0.2(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/tabs": 0.1.3(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@radix-ui/react-dialog": 1.0.5(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      "@uidotdev/usehooks": 2.4.1(react-dom@18.2.0)(react@18.2.0)
-      browser-string-hexer: 1.0.0
-      bs58: 5.0.0
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      vaul: 0.7.9(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - immer
-      - supports-color
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/logo@0.1.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-msGMY7I8S/KhaDgolAG7EbtPzorR9ARxpEFwD5joIjP19gFGDLImJs4/7v0j3yV+iQO3oy+1viYITA/HUa3i/g==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/mochi-rest@5.1.6:
+  /@mochi-ui/mochi-rest@5.1.6:
     resolution:
       {
         integrity: sha512-ARFa/ETUlAYLE/s51layGldIuKPvJxZp655Jol5PODn5O454w0PemW9qHNkxaBFG9nvx2JFq4+ILhLEmVrA6Wg==,
@@ -659,34 +230,17 @@ packages:
       zod: 3.22.4
     dev: false
 
-  /@consolelabs/mochi-store@0.0.2(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0):
-    resolution:
-      {
-        integrity: sha512-t4FLMMcKSf1cm4Z2glp53OnHyYG84+88gqhiOxuoWiks/W6MgHC8rDoKP7adJrSdGXvPp2+xGVlcfXfodS2amw==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      zustand: 4.4.7(@types/react@18.2.42)(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - immer
-    dev: false
-
-  /@consolelabs/mochi-ui@16.0.6(@consolelabs/mochi-rest@5.1.6)(ioredis@5.3.2):
+  /@mochi-ui/mochi-ui@16.0.6(@mochi-ui/mochi-rest@5.1.6)(ioredis@5.3.2):
     resolution:
       {
         integrity: sha512-by+6D0aAYSCOZdrXtCBFB0pnduOJhT4ol4ISAUbplQ2W92inESGvwgvbbBrsnCqAVzF14kwBCTQMaGpSjqCnsw==,
       }
     peerDependencies:
-      "@consolelabs/mochi-rest": ^5.1.6
+      "@mochi-ui/mochi-rest": ^5.1.6
       ioredis: ^5.x.x
     dependencies:
       "@bonfida/spl-name-service": 1.6.1(@solana/web3.js@1.87.6)
-      "@consolelabs/mochi-rest": 5.1.6
+      "@mochi-ui/mochi-rest": 5.1.6
       "@solana/web3.js": 1.87.6
       change-case: 4.1.2
       ethers: 6.9.0
@@ -701,307 +255,6 @@ packages:
       - encoding
       - supports-color
       - utf-8-validate
-    dev: false
-
-  /@consolelabs/modal@0.2.2(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-XrxvsyV9j7+u1ODIPUdnzZJ1vpx7lb5fxD7AfuaSHmz2IJ+l5RVhZWvmGd3+UC4ZMijbOT6BTaxQx/E3qwIPWg==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/icons": 0.2.1(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@radix-ui/react-dialog": 1.0.5(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/page-content@0.1.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-ed1q7BilyV+QVn8a3hwUKWlwABgJKYRNl6i0jNE9xGvP1SGp7KwX1lWB/MyBxA/VqMOQN77ISd6qE1vMSnGiYg==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/page-header@0.2.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-4PlgrAdVEaaFiWJ/E/alEhPasarWvbnoGp124UZLfwtlY8K1+aU9C3I8obuGPiK3Zb6sOzc9/NvP2KNXHHcbgA==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/icon-button": 0.4.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/icons": 0.2.1(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@consolelabs/typography": 0.0.6(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/polymorphic@0.0.2(react-dom@18.2.0)(react@18.2.0):
-    resolution:
-      {
-        integrity: sha512-ImAXk90sHri2AipfPf/a5UogIW0Csa1JfZwqNv//0Y5+GmB3myy6ZeJQdMQSon4m3Q1jf/vJLexccqhVbBiyaQ==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@consolelabs/popover@0.2.1(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-me9v8J3B1buDSVRD0l4EPk1rZjFba0IwyoPnuGuO6LhYBLxhtGFd2vLgu/g0qTkx9ZooqAmig4b7pcTOkbpWYg==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@radix-ui/react-popover": 1.0.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/profile-badge@0.1.1(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-vlzv+u2IQB1IWoD6g+D7a+DrtYn06POO8ihYc0/gbEgZQg6YaFquHa59FYrbACKD7LGiOmQgG9Sc5b7iegJYBg==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/avatar": 0.0.13(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/section-list@0.0.12(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-qdNuxeNkKDMFBN4nZXNA0Mn+sNYtb2i9jq4GFPgLaOQvJ8al9DXkCBPngPFpIMGdfPExXg43VoJnzqyTwhysOQ==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@radix-ui/react-scroll-area": 1.0.5(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/select@0.1.2(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-8WSJ65CYBfJ7wCFaGcF6cNpBjVPhH/g+K9GLZrKtpgJQgL5ElUPZZ/uG+yfV6ODRvCBBOfQ88lWoQmZoz35NWA==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/icons": 0.2.1(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@radix-ui/react-select": 2.0.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/sidebar@0.0.16(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-7K7CqvgSELtSamvTicXtf7P8fmrsZrqK+UWNAUaEcTWEVbxQZmU0kT3xnmUDob65nRNh6goq4me/oYbbgMJ12g==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/accordion": 0.1.3(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@consolelabs/icons": 0.2.1(react-dom@18.2.0)(react@18.2.0)
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@consolelabs/tooltip": 0.2.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/switch@0.0.11(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-NeAeVoi+gp8x+jwuyWNOrHAS3sdLB7RcNBXKlT1gG7pbD1TwtMi5+doxUka3XaPpP3ALDA24IU2dFNbxJburjA==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@radix-ui/react-switch": 1.0.3(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/table@0.1.8(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-5rJXFezffmtqv9IbfDyGr8zTfSLUSyGyElRqscn00rQEG6O8zEiVpdh4hDNWUBCvcx6foMa3ptCDl3pJ6afz6A==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@tanstack/react-table": 8.10.7(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/tabs@0.1.3(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-WsJxxqAmKU51FJ5O97XYYNgMppKjx8kKJiB6QRb1ytM70oig2LNdsCtX5Pmyd5sOfZA2Wr1r5qRxgNLAYz6+Gw==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@radix-ui/react-tabs": 1.0.4(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/theme@0.5.0(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-N6A0F4JWjy4g+9gU/l8TfoNKIvTgNpfqV7c+h/KzHc5jIvJ0ly3dMYR+vUmXNPpgZQ45BNOPUvlqXE7mB89/fQ==,
-      }
-    peerDependencies:
-      tailwindcss: "*"
-    dependencies:
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      color: 4.2.3
-      flat: 6.0.1
-      tailwindcss: 3.3.6
-    dev: false
-
-  /@consolelabs/toggle-button@0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0):
-    resolution:
-      {
-        integrity: sha512-eLPurSJ7TKVhZtFXmdynJHWC40C97EfyP8uMXk2cbGKsoGNjb4XgM4WqY0xuDPkpiTRNBQ4kKEMPPlsgj3jhiw==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@radix-ui/react-toggle-group": 1.0.4(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-    dev: false
-
-  /@consolelabs/tooltip@0.2.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-JET00dKPdE+nb/a0wy1X37KpnerKVs9vAsPF+HAtvHRtJBGAoMdEDd0DJe62IAYBqSb7Yg3locPNnSsVVgCHuA==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@consolelabs/theme": 0.5.0(tailwindcss@3.3.6)
-      "@radix-ui/react-tooltip": 1.0.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      class-variance-authority: 0.7.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
-      - tailwindcss
-    dev: false
-
-  /@consolelabs/typography@0.0.6(react-dom@18.2.0)(react@18.2.0):
-    resolution:
-      {
-        integrity: sha512-V2bNJ788TNeg3q12NRchOzPXgAXKooj5t06mQmt6CNVYeoTu0FewvwGXDFFGIpDh1z7bkbAV4k05V7pqv8QUPQ==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /@coral-xyz/anchor@0.28.1-beta.2:
@@ -1666,17 +919,17 @@ packages:
       "@jridgewell/resolve-uri": 3.1.1
       "@jridgewell/sourcemap-codec": 1.4.15
 
-  /@mochi-ui/accordion@0.1.10(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/accordion@0.1.11(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-iWP91l6lmWhF114qLTSzjseR2fZGYXP46AxUAubjv9hg9Nu/fmOpLunEdENoBjsqC5Ez5G5BmcC2NLhBVVCMTQ==,
+        integrity: sha512-BSCpzr3UMwaUHrbZxoUdCIE7YIuq6JlC1ou4v24GLFzYz+KoHLkXijKnzhxD5EmCunwcIN1JXOS7MTBK65Jlow==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       "@mochi-ui/icons": 0.5.0(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@radix-ui/react-accordion": 1.1.2(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       class-variance-authority: 0.7.0
       clsx: 2.0.0
@@ -1688,17 +941,17 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/action-bar@0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/action-bar@0.1.1(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-jK8Zw7/yt5Xb04sJnksnWQc1SjV5GRTCs/FdSW6l5pruRmVxYGy7c3Lh2CNnJuvQPPZeNunHxtd4wRmwaywxLw==,
+        integrity: sha512-1GQAqBgX5FEddX8hzmVS3MAfQ1IpPMp/y1v9MdPGgODe/564dqO1YkrKQ5t7u5wqSWSdbALPm5Y+6/vdPMAAFw==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/alert": 1.2.0(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/alert": 1.2.1(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@radix-ui/react-popover": 1.0.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       clsx: 2.0.0
       react: 18.2.0
@@ -1709,20 +962,20 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/alert@1.2.0(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/alert@1.2.1(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-0MbwLouOs1fycaH2g7mKO+kRejqQFJ3xZeU4Xr+aqRwYYMUlQJNlyqUonhRyOGKu+w4OZfTuimdQ6LrNZjOaXw==,
+        integrity: sha512-irI5eHJCCeTEVYfKyKQvK07CtYKNgxC7iLkHiQ3/zQvXQKhsKsdWSOJIgYSAt26vV6o4zOsjbfECdtHQnLVMyw==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/button": 0.4.6(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/icon-button": 0.4.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/button": 0.4.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/icon-button": 0.4.8(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
       "@mochi-ui/icons": 0.5.0(react-dom@18.2.0)(react@18.2.0)
       "@mochi-ui/polymorphic": 0.0.3(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@radix-ui/react-slot": 1.0.2(@types/react@18.2.42)(react@18.2.0)
       class-variance-authority: 0.7.0
       clsx: 2.0.0
@@ -1733,16 +986,16 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/avatar@0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/avatar@0.1.1(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-Ae+WtU9K3Uz6BoRm2Rwy7wJUVj6VjXYmVuezZRmIWv2oVcwQkOs62ZSS0hgOJlkCR5wZw4DWThCWWtebiXcZ4Q==,
+        integrity: sha512-iNCDwxS3DGiD/hytaRbvZhFskGNoVcuYcfKRU47FCKaEvNDEP5pWNS2uD7gGnJoxQKzrD8NiDyu3+aYRbUryXA==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@radix-ui/react-avatar": 1.0.4(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       class-variance-authority: 0.7.0
       clsx: 2.0.0
@@ -1754,16 +1007,16 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/badge@0.2.9(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/badge@0.2.10(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-uwMU2EaLx1c/WSOftZ9I3LMIHUL6cu9qILLA5++9mrRe9io83+sQe0Yt3mFjzuJP2tJmiPQinYpaeo4r1zmuKw==,
+        integrity: sha512-UIwcAVLS/qSN/a5q17Ri5ELe0xK8fMVdKRCiBVB1WwrmxfHkBfjAnI5o5YWB7He9H83tdY3PCEDrNVjE3lsJuw==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       class-variance-authority: 0.7.0
       clsx: 2.0.0
       react: 18.2.0
@@ -1772,10 +1025,10 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/button@0.4.6(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/button@0.4.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-vvgnaXHSW+MSocj3GGHZboT6c0f6L9Pg6YBBooGt16GBhrPJbsUChnwQEUsO81/rNZJu/JXtXI5/0AD7WDJihw==,
+        integrity: sha512-+j2NzhgCmbuOVTpqIngG7SUSfHyuv38hNRMzvT+NhHN2lFxMwCWuOMCowGkZFXSxjgVieNVH/z2LO2UKMt2JPQ==,
       }
     peerDependencies:
       react: ^18.2.0
@@ -1783,7 +1036,7 @@ packages:
     dependencies:
       "@mochi-ui/icons": 0.5.0(react-dom@18.2.0)(react@18.2.0)
       "@mochi-ui/polymorphic": 0.0.3(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       class-variance-authority: 0.7.0
       clsx: 2.0.0
       react: 18.2.0
@@ -1792,17 +1045,17 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/checkbox@0.1.10(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/checkbox@0.1.11(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-CXo+ksBwEfhdYswjtbHytd2HYi2KlxL7HArnuj5i2R4WNGjJ3HdUvww/CZmneINDrtsqUh9bHDSGJu2WfjRliQ==,
+        integrity: sha512-XoeYbJ2+kLei5zAnSVLTEFJy2OeQo2dG9e4GuMRVBqekvsStPivoylq2rI2tYfzcGOJ6BAzjNIb6rypscZM8Aw==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       "@mochi-ui/icons": 0.5.0(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@radix-ui/react-checkbox": 1.0.4(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       class-variance-authority: 0.7.0
       react: 18.2.0
@@ -1813,20 +1066,20 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/connect-wallet-widget@0.0.2(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)(typescript@5.3.3):
+  /@mochi-ui/connect-wallet-widget@0.0.3(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)(typescript@5.3.3):
     resolution:
       {
-        integrity: sha512-RykH1HJl+5D+2ClOIeyfxq2QeeUTIR9aQoWQ2a60deNfa3N+4RWnBbIocVxcBa+K7qEQT+wxnJG0gU2j54LOtQ==,
+        integrity: sha512-1ICUaD13qKH29uF7B6a4sDGRlkQ6WME0K+m5sTIi0Av1mC+DHzd9pJjhw+xHPtWOlbrIAxqTWuDz6nBH1IcmHA==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/button": 0.4.6(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/dropdown": 0.1.10(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/button": 0.4.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/dropdown": 0.1.11(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
       "@mochi-ui/icons": 0.5.0(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/tabs": 0.1.10(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/tabs": 0.1.11(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@solana/web3.js": 1.87.6
       browser-string-hexer: 1.0.0
       bs58: 5.0.0
@@ -1849,17 +1102,17 @@ packages:
       - zod
     dev: false
 
-  /@mochi-ui/content-editable@1.0.1(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/content-editable@1.0.2(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-ugwt3VFT/Ju7ZPfO4gdyTG91aiWYA3k9JPigR6d/9ymsIEuMMUupaRMfYTpXTr2qBoHV/wiijY/g69jkm/JZog==,
+        integrity: sha512-am24bKwHDrVL8GgYGW9bCY81h8luYs0YXNzioZVdTjTNklyYgvsiumaTq7lSNtpdQMfjJZO+sUysBcPP1XDRzQ==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       "@mochi-ui/icons": 0.5.0(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       class-variance-authority: 0.7.0
       clsx: 2.0.0
       react: 18.2.0
@@ -1868,53 +1121,51 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/core@0.8.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(ioredis@5.3.2)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)(typescript@5.3.3):
+  /@mochi-ui/core@0.9.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(ioredis@5.3.2)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)(typescript@5.3.3):
     resolution:
       {
-        integrity: sha512-WzIo9FOulzShStOX3z/CsUHlY21towj3wdzJh1QlSqJujkjHYYTc32a7MIPwA8Sk+zh/93qig4GrI+m8FvKVvA==,
+        integrity: sha512-e6NNKl3b6u2zwfsj0CTxeJgfABGutn4k+eBI2Pzuo53GmVVowmLlh6Mt3zQowyzCFEHF9PgQjVwQJX6LfEKOig==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/accordion": 0.1.10(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/action-bar": 0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/alert": 1.2.0(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/avatar": 0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/badge": 0.2.9(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/button": 0.4.6(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/checkbox": 0.1.10(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/connect-wallet-widget": 0.0.2(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)(typescript@5.3.3)
-      "@mochi-ui/content-editable": 1.0.1(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/dropdown": 0.1.10(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/footer": 0.1.1(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/form": 0.1.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/heading": 0.0.6(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/icon-button": 0.4.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/accordion": 0.1.11(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/action-bar": 0.1.1(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/alert": 1.2.1(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/avatar": 0.1.1(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/badge": 0.2.10(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/button": 0.4.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/checkbox": 0.1.11(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/connect-wallet-widget": 0.0.3(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)(typescript@5.3.3)
+      "@mochi-ui/content-editable": 1.0.2(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/dropdown": 0.1.11(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/footer": 0.1.2(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/form": 0.1.8(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/icon-button": 0.4.8(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
       "@mochi-ui/icons": 0.5.0(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/input": 0.2.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/input-field": 0.1.11(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/label": 0.1.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/layout": 0.1.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/list": 0.0.20(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/login-widget": 0.1.11(@types/react-dom@18.2.17)(@types/react@18.2.42)(ioredis@5.3.2)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)(typescript@5.3.3)
-      "@mochi-ui/logo": 0.1.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/modal": 0.2.9(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/page-content": 0.1.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/page-header": 0.2.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/popover": 0.2.8(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/profile-badge": 0.1.8(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/section-list": 0.0.19(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/select": 0.1.9(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/sidebar": 0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/skeleton": 1.0.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/switch": 0.0.18(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/table": 0.3.5(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
-      "@mochi-ui/toast": 0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/input": 0.2.8(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/label": 0.1.8(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/layout": 0.1.8(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/list": 0.0.21(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/login-widget": 0.1.12(@types/react-dom@18.2.17)(@types/react@18.2.42)(ioredis@5.3.2)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)(typescript@5.3.3)
+      "@mochi-ui/logo": 0.1.8(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/modal": 0.2.10(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/page-content": 0.1.8(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/page-header": 0.2.8(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/popover": 0.2.9(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/profile-badge": 0.1.9(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/section-list": 0.0.20(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/select": 0.1.10(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/sidebar": 0.1.1(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/skeleton": 1.0.1(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/switch": 0.0.19(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/table": 0.4.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
+      "@mochi-ui/toast": 0.1.1(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
       "@mochi-ui/toggle-button": 0.1.1(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/tooltip": 0.2.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/top-bar": 0.1.6(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/tooltip": 0.2.8(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/top-bar": 0.1.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
       "@mochi-ui/typography": 0.0.7(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -1932,17 +1183,17 @@ packages:
       - zod
     dev: false
 
-  /@mochi-ui/dropdown@0.1.10(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/dropdown@0.1.11(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-hq4CJVd2+L3PiWfp1xqSfrQTUyPxO95h7XbpECMAztwaO6JUagloR28I3fF11eG7sEBZrmG3EMMjv9sO2Nx1yQ==,
+        integrity: sha512-qdxyTiAr/IM/T4kBnzG3DrJ+0TTZ0rmLYHQxtNt8m1iqa082OFJNM1rfA7dsiLA2FFLnG/MRSfbA1yS1dxkN/Q==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       "@mochi-ui/icons": 0.5.0(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@radix-ui/react-dropdown-menu": 2.0.6(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       class-variance-authority: 0.7.0
       clsx: 2.0.0
@@ -1954,16 +1205,16 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/footer@0.1.1(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/footer@0.1.2(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-hguKll8gRfN9FLYiy8KyyeF+zpWp1L/TJWE8C0VOzdq5wvOk98fNy8i+d8jE+MROZ4YhDFegVkZc+wZq5zZ48w==,
+        integrity: sha512-iQtWymexe5dCSt/ms4fBSFw5hBeGdCud7/n3bY/WNoFPvi2YJBw6JJAEcoKp51AXrNWwuuWZpOOluRnuTD1GcQ==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@mochi-ui/typography": 0.0.7(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -1984,19 +1235,19 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@mochi-ui/form@0.1.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/form@0.1.8(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-IRWWLcUVQQn5r8qCL0NkHbMz4NcUKJd2uqMLbBTFd1rHOmGmKCfkrO42vCaGBPmDrKfIfLb1sC7LxqZyxNBx+w==,
+        integrity: sha512-1Om9QcAhBB6dEEAMVnSffXl1Ykoo/ZgLB89Au6cTu6Lodi9QOLocKpNshqcU9UoYrmLQ8OujivjadhGI6+Up3Q==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       "@mochi-ui/form-context": 0.1.1(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/label": 0.1.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/label": 0.1.8(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
       "@mochi-ui/polymorphic": 0.0.3(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       class-variance-authority: 0.7.0
       clsx: 2.0.0
       react: 18.2.0
@@ -2007,23 +1258,10 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/heading@0.0.6(react-dom@18.2.0)(react@18.2.0):
+  /@mochi-ui/icon-button@0.4.8(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-3Nw9GIR/oB44xkYGLYJJaagZSOSXqJ3FbGdbqQyisAT5/xXqyYGdzx7hENtGxsw8Tg77qyrgHZEWHxL5/89ccQ==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@mochi-ui/icon-button@0.4.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-uKJqDM2b5A3CdofJ6uHEF9axk3L+YkUtApOLx6Knp+yKCf3Rb9zHKcC3EO3beef1Ve7qO3Q3sqaznVwYMBEgWA==,
+        integrity: sha512-Lr/9/SORVFwKLpYsVSYO2CmxFBT+tl57atsiFou/ZQLV9aygctcBRgrMD/c44OweNTfcy0up8frmPifB8l2gyw==,
       }
     peerDependencies:
       react: ^18.2.0
@@ -2031,7 +1269,7 @@ packages:
     dependencies:
       "@mochi-ui/icons": 0.5.0(react-dom@18.2.0)(react@18.2.0)
       "@mochi-ui/polymorphic": 0.0.3(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       class-variance-authority: 0.7.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -2052,28 +1290,10 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@mochi-ui/input-field@0.1.11(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/input@0.2.8(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-2bN512RTDNr+P+hFhNvBNBC5db+9GW1otIpwk+FLvjO1O4T6+70LePFusX1WsJNiTG/GCo8pw6VEdrr4hhMKRA==,
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
-      class-variance-authority: 0.7.0
-      clsx: 2.0.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - tailwindcss
-    dev: false
-
-  /@mochi-ui/input@0.2.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
-    resolution:
-      {
-        integrity: sha512-VC0AWt//WEkriBx7tGvS998k+ZZDpHAJsDrfTeAp+GXuvL/fS9jhHrxfmWfsfbWz4f3Pt0rlVhQssOYDlpc1yg==,
+        integrity: sha512-IT218ppwoTOLkrJuvL4YHF3leBfKNfbOmEwRusOm6CGaA4EdCfAQI7bwHjXomVq1uWBM2mh0NyBYyVfMPECiRQ==,
       }
     peerDependencies:
       react: ^18.2.0
@@ -2081,7 +1301,7 @@ packages:
     dependencies:
       "@mochi-ui/form-context": 0.1.1(react-dom@18.2.0)(react@18.2.0)
       "@mochi-ui/polymorphic": 0.0.3(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       class-variance-authority: 0.7.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -2089,16 +1309,16 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/label@0.1.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/label@0.1.8(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-E6SKmOocAPOuD1WdvbFeea1EYIqkIKrCAuXHJDYiGapDyMC9ndb9MLdGrCCMB1MQG/XUk7mxHbtSBbuNj91btw==,
+        integrity: sha512-rFEKMiRbt7NgvapZD7OF87qI8C+YDGxImItoD19LPcQq2aTOF8zr7rQSJj+5Wg7w8KVJgmNnbum3jbRaN/eN7w==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@radix-ui/react-label": 2.0.2(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -2108,17 +1328,17 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/layout@0.1.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/layout@0.1.8(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-ufZxJitr8haTWX1FMUedyXh+0dUDTiaRMduiniLHWwlksMV1OrmXTIHvsVvjnhPKFkncCsI/TS2jrknenkW95w==,
+        integrity: sha512-R75Y+6a1BX/kPdjHA7EYEWSwLSRpdz2DQ5VII37EgwI2NFFaNAfbqJrwt/iaI05vQs4CZp+U8R4s8GqpSb5R+A==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/sidebar": 0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/sidebar": 0.1.1(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
@@ -2127,16 +1347,16 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/list@0.0.20(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/list@0.0.21(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-L+ypQtfTxptrbRPUy3Jpzy5jnjLo51Ghh8RuzgI9VJcYN3eToytqHIOJQv6WMSrslTsuOhJlmYqi9uSShJ5k7w==,
+        integrity: sha512-E00xbtYbjJceqQUwrceBqueXCa8dm5pwlFC6k5y7PnVBtFsJ8VopYrAj2f4jyCSeX+tDDrnQ/5LMp8AoMm0Yfw==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@radix-ui/react-scroll-area": 1.0.5(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       class-variance-authority: 0.7.0
       react: 18.2.0
@@ -2147,25 +1367,24 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/login-widget@0.1.11(@types/react-dom@18.2.17)(@types/react@18.2.42)(ioredis@5.3.2)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)(typescript@5.3.3):
+  /@mochi-ui/login-widget@0.1.12(@types/react-dom@18.2.17)(@types/react@18.2.42)(ioredis@5.3.2)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)(typescript@5.3.3):
     resolution:
       {
-        integrity: sha512-gwa8VfzDjjJaOkpK2ryQzh9gzc1NMGu++456X0+9Qts6UEpDTbtmAGirXF6OtIVX9OtNL5uS4dW5n7uRJUYjnA==,
+        integrity: sha512-NSOn78r3B0GhrK+ggYBz4n7XHNVNRLvA3wXwJtwpiZ6OK9YznUor7j872+9bEO8B8miryrbQQs99tJKzH2m9Og==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@consolelabs/mochi-rest": 5.1.6
-      "@consolelabs/mochi-ui": 16.0.6(@consolelabs/mochi-rest@5.1.6)(ioredis@5.3.2)
-      "@mochi-ui/button": 0.4.6(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/connect-wallet-widget": 0.0.2(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)(typescript@5.3.3)
-      "@mochi-ui/dropdown": 0.1.10(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/heading": 0.0.6(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/icon-button": 0.4.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/mochi-rest": 5.1.6
+      "@mochi-ui/mochi-ui": 16.0.6(@mochi-ui/mochi-rest@5.1.6)(ioredis@5.3.2)
+      "@mochi-ui/button": 0.4.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/connect-wallet-widget": 0.0.3(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)(typescript@5.3.3)
+      "@mochi-ui/dropdown": 0.1.11(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/icon-button": 0.4.8(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
       "@mochi-ui/icons": 0.5.0(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/tabs": 0.1.10(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/tabs": 0.1.11(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@mochi-ui/typography": 0.0.7(react-dom@18.2.0)(react@18.2.0)
       "@radix-ui/react-dialog": 1.0.5(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       "@solana/web3.js": 1.87.6
@@ -2195,33 +1414,33 @@ packages:
       - zod
     dev: false
 
-  /@mochi-ui/logo@0.1.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/logo@0.1.8(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-zRfEXvTdoerCWF/2ZBUxUtdlBDD7nflJrmaJrPJuUTBkhAbtVtP8q8fmBYNPUHPvv6Im632MpkNT8EyAfC8wmg==,
+        integrity: sha512-7GZN3C64cOPAQiBDauz+m4rmxpcvYogjdv9wcqD1XewNzVCrrBceMQSQUWoHhwKo1lgalUjPG/FJ6wk1zOErjA==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/modal@0.2.9(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/modal@0.2.10(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-j4JHBXDEPkAE+mStdMT0hiaVZnT2VHF9/yHTTNRTGuQJCT4Aa9UklqkeFJoXdK3IezsjgJwKPPFItr2XsS5Nhw==,
+        integrity: sha512-rsUdJkSKX0CEU+5wg2KKEQNqkSwY3oOAhkCD82FdAndcDoKvBn4SdujneLmfHpA9bIW5AsCl7TdGpNUmzMpPdg==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       "@mochi-ui/icons": 0.5.0(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@radix-ui/react-dialog": 1.0.5(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -2231,34 +1450,34 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/page-content@0.1.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/page-content@0.1.8(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-gQL1mRm//DCuGvmzAH9kt5e/PXti6aLz8E9ZXs5LtRk+wR/ngz79HE6KkJrDD2UGMGsyu2Zi61Z15Q31bPKxCg==,
+        integrity: sha512-sSQ0eohHlmIroYerNzZBcISo/SgTZcGATY/t1PSEAx/6X0Xxwl+2woRU2KGiDSmKZOFVMuP09rmup1WGbyzVeA==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/page-header@0.2.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/page-header@0.2.8(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-gCK6jdqTpN9voB2bKG0R+CvQ7iAfSCWAQQzbY5AR4MeEQ2opwXWn2rrn6UTrNsIq++88m4UB63yHXw78m3F6Ng==,
+        integrity: sha512-qObPhAulIYrS282tFB70UPcQ0S6YO8tPgQXVQRrZN+1f/M//gH9OpF45OnfMyu1qMjTBBSl73Bm6Te5EUGgaRw==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/icon-button": 0.4.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/icon-button": 0.4.8(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
       "@mochi-ui/icons": 0.5.0(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@mochi-ui/typography": 0.0.7(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -2279,16 +1498,16 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@mochi-ui/popover@0.2.8(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/popover@0.2.9(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-jIam1F9HB6Vjv5XeqdwLOMRGLQYGFKuOUcfNYZGvpKa0k6SNSl8CVRvX/RbGmzbGtb6S+WZsjJ/jbQJSVpxo+Q==,
+        integrity: sha512-anpgJDPvf9Cxkdl81JzJBySC3vBH9irVHSaEtUVG+cpnOvLiDDTFpJLgcRgKUog9jAOK+km10QQxv4uRDMn8wg==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@radix-ui/react-popover": 1.0.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       class-variance-authority: 0.7.0
       clsx: 2.0.0
@@ -2300,17 +1519,17 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/profile-badge@0.1.8(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/profile-badge@0.1.9(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-jj5KfV5S2+UWf1UqSVjn9pZc4LeAPxwC0ujv4lGJRyEHDEAM3+P4vGnECddU+L4o4cSlF5Lxz4obJoNFT8JVEg==,
+        integrity: sha512-XgKN1jYiL7rsc7KsrUlIYir2Uago4gIlg20z1ipuH8BrSkUWolY1tBQdmBM0wzGamQv+bv2Z1+YRLFIIfIdD5w==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/avatar": 0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/avatar": 0.1.1(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
@@ -2319,16 +1538,16 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/section-list@0.0.19(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/section-list@0.0.20(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-KURJFW1MBdhMpEsqycdczVTh1OFXovrVVhOriK22kl6Sp0+ARI+D+N7Co6gQM2A0vAnVQPu/gMRMAxpC5PfQ2w==,
+        integrity: sha512-3brDd96kV2wPYnWmZo5A1FY6RJCcEVWEvjurTlLMYxYR79sn7OKrFqbGpKLnV/oeSdlTciNrdsCSXovUrQDfIA==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@radix-ui/react-scroll-area": 1.0.5(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       clsx: 2.0.0
       react: 18.2.0
@@ -2339,17 +1558,17 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/select@0.1.9(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/select@0.1.10(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-HK/gIFGzWIeGaG9IJ5B8Fq3Z8HDAd8iiqIEZuF19KwixbhI9JSIizPlhIQarEX6lvtJUBeZyZleKERYUQLqGAQ==,
+        integrity: sha512-GCbrTBgSVse4OfNExcUcl7s5ZSJ7qjavgaAkkj3QcfNTHAXEvsAKmNVXjZqf2X/Lmt0TuKA3GvbwKcpslkO5Kg==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       "@mochi-ui/icons": 0.5.0(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@radix-ui/react-select": 2.0.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       class-variance-authority: 0.7.0
       clsx: 2.0.0
@@ -2361,19 +1580,19 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/sidebar@0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/sidebar@0.1.1(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-u9WiIqql2NHiQNEFF5EIsAcMJmw+TW4tR+MaU7SvjCAK6haytNegjdhCYFIeS88d+iQKzohI89tVfGTHkOYbYw==,
+        integrity: sha512-0TSUYvFETXxV2snit/+YzzPrSCOiVoW9oo3/xeP4Ree5VMUYPgn6qZ142FaBuffuo3xA4IkKlDT8LW4Ld+k4zA==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/accordion": 0.1.10(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/accordion": 0.1.11(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
       "@mochi-ui/icons": 0.5.0(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
-      "@mochi-ui/tooltip": 0.2.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
+      "@mochi-ui/tooltip": 0.2.8(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
       "@mochi-ui/typography": 0.0.7(react-dom@18.2.0)(react@18.2.0)
       class-variance-authority: 0.7.0
       clsx: 2.0.0
@@ -2385,17 +1604,17 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/skeleton@1.0.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/skeleton@1.0.1(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-qe4F/8oTdv9kBfQHDM/f2bnAD5LwpZe6mXqqEMDHybgp1HOg2FaguSlFNLhNwJsJPKzst3ydxwHvWjKjhrTirA==,
+        integrity: sha512-3cmFvQEwU6OsdSN6BvNhd5jgc/qWs9MmWUM5OBZEPxss7z3W+rR715pQ7k+p8Ks4PpSMq9DeN7JqYfvqoa+kZA==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       "@mochi-ui/icons": 0.5.0(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       class-variance-authority: 0.7.0
       clsx: 2.0.0
       react: 18.2.0
@@ -2404,16 +1623,16 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/switch@0.0.18(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/switch@0.0.19(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-P4q+V61fh3yMDBdLag8F9/Vqj+POZ/XDgykHQA70HlUW0ysnIXWmvDwuCxW6YQLEuu4mvV5a5tdNDt+1ybia3Q==,
+        integrity: sha512-HM9EHGsfvStQBfiu8AEVr44VCtOmFPJqnnqJEQUYMnBgq7jHXdJSHPyB/Kez5TebTigciMLZPqbHCBMbkcWiOQ==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@radix-ui/react-switch": 1.0.3(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       class-variance-authority: 0.7.0
       clsx: 2.0.0
@@ -2425,16 +1644,17 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/table@0.3.5(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/table@0.4.0(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-ESrhOfLUHizHh58OGGvJ4vYQgKGjAlWbwJGt29oZFH8IGv039Hqt3E8wsZFB6KhCQbUG0p/MZpMLL4SoJd6gOw==,
+        integrity: sha512-QgKC0qfnrzUUvXUNIgmzAhTw+mDDQ6H4RdNgkd0vp9857Q0mV+1skJZGyFRJ2BQnCvrjkwrbP46/J0qd+Sh2+g==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/skeleton": 1.0.1(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@tanstack/react-table": 8.10.7(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -2442,16 +1662,16 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/tabs@0.1.10(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/tabs@0.1.11(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-ZublxeloSEvJ6XPl+CIQM0n/7NZh08E8tpD2XBcMQcH/pJPX8kNC+jJ3/oYqmy5wOEuVLIl7OZveDGXBux+pIw==,
+        integrity: sha512-aR5dexdeCCxMUxNj1YNP9tzJEeKFxOBlDDudYzbqEDJBx6g1CGdpd5MBDzNLZ/PBkF7nsVblC72Am+V4sE4QYQ==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@radix-ui/react-tabs": 1.0.4(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       class-variance-authority: 0.7.0
       clsx: 2.0.0
@@ -2463,10 +1683,10 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/theme@0.9.0(tailwindcss@3.3.6):
+  /@mochi-ui/theme@0.10.0(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-riTM2wpW3R2FcdBqP3iULsNsLNcF0FMxu69Q6u7jUcu3dmhvtcgU5uxuWip9srRYIpeCBF0Fsyre54tan/ngjg==,
+        integrity: sha512-SH8m/HSZExESc+FfZ84S8YFAAdb/6tEnTKIcj7jHd+Zs3GOFxDAI4iH2YWjVGPzP1CGErZFYAB9KkWWmBo3mGg==,
       }
     peerDependencies:
       tailwindcss: "*"
@@ -2478,18 +1698,18 @@ packages:
       tailwindcss: 3.3.6
     dev: false
 
-  /@mochi-ui/toast@0.1.0(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/toast@0.1.1(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-2jCF5y14WvEdbuo8GlHxcPzInYbNMvG/zMfR0ShJd/OZev5PnSXrFA0RfOANX443gO3arCOnD10UYnlCoQKXig==,
+        integrity: sha512-SygRZvUhq8SzWJB8DBM7k0WKtGpUn0iYIo/8IZG+oKJMDoBY256ak+SguwPsoeZXVoJEWauYTxedR0EhQ4WFbg==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/alert": 1.2.0(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/alert": 1.2.1(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
       "@mochi-ui/polymorphic": 0.0.3(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@radix-ui/react-slot": 1.0.2(@types/react@18.2.42)(react@18.2.0)
       "@radix-ui/react-toast": 1.1.5(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       class-variance-authority: 0.7.0
@@ -2521,16 +1741,16 @@ packages:
       - "@types/react-dom"
     dev: false
 
-  /@mochi-ui/tooltip@0.2.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/tooltip@0.2.8(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-HHTsUSVsICvqGPmeTSS4n7Z9rOk0E8tCqSwBE21LtQctSG2klKlg6Yv8lZhGZ4yhxk3QDB/JUorfchxjumnYpA==,
+        integrity: sha512-2TQVZsdNv9eGxq6WVeObOxUZQAB1TZvsfa0qubeFhi/FdClfP0tkBvgKdtJmIeZucf1EXdoHqLXxPUzu5CqUSg==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       "@radix-ui/react-tooltip": 1.0.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       class-variance-authority: 0.7.0
       react: 18.2.0
@@ -2541,20 +1761,20 @@ packages:
       - tailwindcss
     dev: false
 
-  /@mochi-ui/top-bar@0.1.6(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
+  /@mochi-ui/top-bar@0.1.7(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6):
     resolution:
       {
-        integrity: sha512-BwD/1qOT7w/EPNeFg3Qy6s7Ex2VCPi9jIiwxbmbNUbWjl7amhZbFmNrzY2NMq+xoV/bqeXImFYt/MeGSqbDSjA==,
+        integrity: sha512-6VLDl4NkJ31Kg9absYJ8JDGzL9i/YWnI6F/TNUFK2J/K2C4/8rtXw7djx8gsMlWpeEpiAuPJo2xG4/E+H10ohg==,
       }
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       "@dwarvesf/react-hooks": 0.8.1(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/icon-button": 0.4.7(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/icon-button": 0.4.8(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
       "@mochi-ui/icons": 0.5.0(react-dom@18.2.0)(react@18.2.0)
-      "@mochi-ui/list": 0.0.20(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
-      "@mochi-ui/theme": 0.9.0(tailwindcss@3.3.6)
+      "@mochi-ui/list": 0.0.21(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.6)
+      "@mochi-ui/theme": 0.10.0(tailwindcss@3.3.6)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
@@ -11039,23 +10259,6 @@ packages:
       diff: 5.1.0
       kleur: 4.1.5
       sade: 1.8.1
-    dev: false
-
-  /vaul@0.7.9(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0):
-    resolution:
-      {
-        integrity: sha512-RrcnGOHOq/cEU3YpyyZrnjh0H79xMpF3IrHZs9ichvHlpKjLDc4Vwjn4VkuGzeUGrmQ3wamfm/cpdKWpvBIgQw==,
-      }
-    peerDependencies:
-      react: ^16.8 || ^17.0 || ^18.0
-      react-dom: ^16.8 || ^17.0 || ^18.0
-    dependencies:
-      "@radix-ui/react-dialog": 1.0.5(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - "@types/react"
-      - "@types/react-dom"
     dev: false
 
   /vfile-message@3.1.4:

@@ -15,6 +15,9 @@ export interface Story {
   media_type: "VIDEO" | "IMAGE";
   owner: BasicUser;
   total_view?: number;
+  caption: string;
+  alt_text: string;
+  view_option: "ONLY_ME" | "EVERYONE";
 }
 
 export type GetStoriesParams = {
@@ -32,6 +35,7 @@ export type BasicStory = Pick<
   | "privacy_mode"
   | "owner"
   | "total_view"
+  | "alt_text"
 >;
 
 export interface CreateStoryBody {

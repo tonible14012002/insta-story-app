@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import Image from "next/image";
 import { BasicStory, Story } from "@/schema/story";
-import { Avatar, AvatarProps, Typography } from "@consolelabs/core";
+import { Avatar, AvatarProps, Typography } from "@mochi-ui/core";
 
 export function StoryView(props: BasicStory) {
   return (

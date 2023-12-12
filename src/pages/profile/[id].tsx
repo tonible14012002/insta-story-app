@@ -1,4 +1,4 @@
-import { Modal, ModalContent, ModalTrigger } from "@consolelabs/core";
+import { Modal, ModalContent, ModalTrigger } from "@mochi-ui/core";
 import { useRouter } from "next/router";
 import { useAuthContext } from "@/context/auth";
 import { useFetchProfile } from "@/hooks/useFetchProfile";
@@ -6,7 +6,7 @@ import { PageSkeleton } from "@/components/common/skeleton";
 import { useFetchFollower } from "@/hooks/useFetchFollower";
 import { useState } from "react";
 import { useFetchFollowing } from "@/hooks/useFetchFollowing";
-import { PlusLine } from "@consolelabs/icons";
+import { Plus as PlusLine } from "lucide-react";
 import * as Tab from "@radix-ui/react-tabs";
 import { useFetchActiveStoriesByUserId } from "@/hooks/useFetchActiveStoryByUserId";
 import { ProfileHeadSection } from "@/components/profile/profile-head-section";

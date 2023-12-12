@@ -4,8 +4,12 @@ import {
   ModalContent,
   ModalTrigger,
   Avatar,
-} from "@consolelabs/core";
-import { AddUserSolid, ArrowDownLine, ArrowUpLine } from "@consolelabs/icons";
+} from "@mochi-ui/core";
+import {
+  User as UserSolid,
+  ArrowDown as ArrowDownLine,
+  ArrowUp as ArrowUpLine,
+} from "lucide-react";
 
 export default function Home() {
   return (
@@ -42,7 +46,7 @@ export default function Home() {
           <ArrowUpLine />
         </IconButton>
         <IconButton variant="outline" color="secondary">
-          <AddUserSolid />
+          <UserSolid />
         </IconButton>
         <IconButton variant="ghost">
           <ArrowDownLine />

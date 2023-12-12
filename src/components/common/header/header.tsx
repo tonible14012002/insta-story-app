@@ -1,17 +1,12 @@
 import { ROUTES } from "@/constants/routes";
 import { useAuthContext } from "@/context/auth";
-import { Avatar, IconButton, Typography } from "@consolelabs/core";
-import { LogoutSolid, ArrowLeftLine, AddUserSolid } from "@consolelabs/icons";
+import { Avatar, IconButton, Typography } from "@mochi-ui/core";
 import {
-  Modal,
-  ModalTrigger,
-  ModalClose,
-  ModalTitle,
-  ModalContent,
-  TextFieldRoot,
-  TextFieldDecorator,
-  TextFieldInput,
-} from "@consolelabs/core";
+  LogOut as LogoutSolid,
+  ArrowLeft as ArrowLeftLine,
+  Search as SearchLine,
+} from "lucide-react";
+import { Modal, ModalTrigger, ModalContent } from "@mochi-ui/core";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { SearchUserDrawer } from "./search-drawer";
@@ -42,7 +37,7 @@ export function Header() {
             className="flex w-fit h-fit "
             href={ROUTES.USER_PROFILE(user.id)}
           >
-            <Avatar src="" />
+            <Avatar src={user.avatar ?? ""} />
           </Link>
           <div className="flex flex-col line-clamp-1">
             <Typography className="line-clamp-1" level="h7">
@@ -57,7 +52,7 @@ export function Header() {
             <Modal>
               <ModalTrigger>
                 <IconButton variant="ghost">
-                  <AddUserSolid width={20} height={20} />
+                  <SearchLine width={20} height={20} />
                 </IconButton>
               </ModalTrigger>
               <ModalContent

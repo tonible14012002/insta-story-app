@@ -1,12 +1,12 @@
 import type { Config } from "tailwindcss";
-import { consolelabs } from "@consolelabs/theme";
+import { mochiui } from "@mochi-ui/theme";
 
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@consolelabs/theme/dist/components/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@mochi-ui/theme/dist/components/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     container: {
@@ -36,8 +36,12 @@ const config: Config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      boxShadow: {
+        "inner-y":
+          "inset 0px 20px 20px -10px #CCC0, inset 0px -20px 20px -10px #CCC0; ",
+      },
     },
   },
-  plugins: [consolelabs(), require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), mochiui()],
 };
 export default config;

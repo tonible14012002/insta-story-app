@@ -1,34 +1,59 @@
+import { useUrlDisclosure } from "@/hooks/use-url-disclosure";
 import { BasicStory } from "@/schema/story";
-import { Typography } from "@consolelabs/core";
-import { EyeShowSolid } from "@consolelabs/icons";
+import { Modal, ModalContent, ModalTrigger, Typography } from "@mochi-ui/core";
+import { Eye } from "lucide-react";
 import Image from "next/image";
+import { StoryDetailView } from "./story-detail-view";
+import clsx from "clsx";
+import { overlay } from "@/utils/style";
+
+const STORY_PARAM_KEY = "story";
 
 export const StoryCard = (props: BasicStory) => {
-  const { media_type, media_url, total_view } = props;
+  const { media_url, total_view, id } = props;
+  const {
+    isOpen,
+    onOpen: _originOnOpen,
+    onClose,
+  } = useUrlDisclosure(STORY_PARAM_KEY);
+  const onOpen = () => {
+    _originOnOpen(id);
+  };
+  const onOpenChange = (open: boolean) => {
+    open ? onOpen() : onClose();
+  };
+
   const showView = typeof total_view === "number";
 
   return (
-    <div className="relative">
-      <div className="">
-        <Image
-          src={media_url}
-          layout="responsive"
-          alt=""
-          width={300}
-          height={400}
-        />
-      </div>
-      {showView && (
-        <div className="absolute bottom-2 right-2 text-xl text-text-secondary flex items-center gap-1">
-          <EyeShowSolid />
-          <Typography
-            level="p6"
-            color="textSecondary max-w-[50px] line-clamp-1"
-          >
-            {total_view}
-          </Typography>
+    <Modal open={isOpen} onOpenChange={onOpenChange}>
+      <ModalTrigger onClick={onOpen}>
+        <div className="relative">
+          <div className="relative w-full pb-[100%]">
+            <Image
+              className="absolute w-full h-full"
+              src={media_url}
+              alt=""
+              objectFit="cover"
+              fill
+            />
+          </div>
+          {showView && (
+            <div className="absolute bottom-2 right-2 text-xl text-text-secondary flex items-center gap-1">
+              <Eye className="text-white" />
+              <Typography
+                level="p6"
+                color="text-white max-w-[50px] line-clamp-1"
+              >
+                {total_view}
+              </Typography>
+            </div>
+          )}
         </div>
-      )}
-    </div>
+      </ModalTrigger>
+      <ModalContent className={clsx(overlay.screen)}>
+        <StoryDetailView onClose={onClose} id={id} />
+      </ModalContent>
+    </Modal>
   );
 };

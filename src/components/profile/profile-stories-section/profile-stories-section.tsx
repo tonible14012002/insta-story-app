@@ -1,7 +1,7 @@
 import { BasicStory, Story } from "@/schema/story";
 import { animation } from "@/utils/style";
-import { Modal, ModalContent, ModalTrigger } from "@consolelabs/core";
-import { PlusLine } from "@consolelabs/icons";
+import { Modal, ModalContent, ModalTrigger } from "@mochi-ui/core";
+import { Plus as PlusLine } from "lucide-react";
 import clsx from "clsx";
 import { StoryUploaderModal } from "../story-uploader-modal";
 import { Skeleton } from "@mochi-ui/core";

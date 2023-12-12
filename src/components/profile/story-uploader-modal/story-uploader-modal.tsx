@@ -19,7 +19,7 @@ import {
   TextFieldInput,
   TextFieldRoot,
   Typography,
-} from "@consolelabs/core";
+} from "@mochi-ui/core";
 import { Tabs, TabsContent } from "@radix-ui/react-tabs";
 import clsx from "clsx";
 import { useCallback, useEffect, useState } from "react";
@@ -30,7 +30,7 @@ import { animation } from "@/utils/style";
 import { useAuthContext } from "@/context/auth";
 import { useForm } from "react-hook-form";
 import { Controller } from "react-hook-form";
-import { ChevronRightLine, CloseLine } from "@consolelabs/icons";
+import { ChevronRight as ChevronRightLine, X as CloseLine } from "lucide-react";
 import { ExcludeUsersModal } from "./exclude-user-modal";
 import { useFetchUsersByIds } from "@/hooks/useFetchUserByIds";
 import { User } from "@/schema";

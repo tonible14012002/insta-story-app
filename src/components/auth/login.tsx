@@ -8,10 +8,10 @@ import {
   TextFieldDecorator,
   FormHelperText,
   FormErrorMessage,
-} from "@consolelabs/core";
+} from "@mochi-ui/core";
 import { Controller } from "react-hook-form";
 import { useForm } from "react-hook-form";
-import { UserSolid } from "@consolelabs/icons";
+import { User as UserSolid } from "lucide-react";
 import { identityService } from "@/apis";
 import JWTManager from "@/libs/jwt-manager";
 import { useAuthContext } from "@/context/auth";

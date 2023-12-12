@@ -21,4 +21,13 @@ const animation = {
   accordionContentAnimation,
 };
 
-export { animation };
+const overlay = {
+  screen: [
+    "container !rounded-none",
+    "h-screen",
+    "!p-0",
+    "!focus:outline-none",
+  ],
+};
+
+export { animation, overlay };

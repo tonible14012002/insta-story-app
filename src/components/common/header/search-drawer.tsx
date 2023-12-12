@@ -12,8 +12,8 @@ import {
   TextFieldInput,
   TextFieldRoot,
   Typography,
-} from "@consolelabs/core";
-import { ArrowLeftLine, PlusLine } from "@consolelabs/icons";
+} from "@mochi-ui/core";
+import { Plus as PlusLine } from "lucide-react";
 import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
 import { CustomHeader } from "./custom-header";
@@ -25,7 +25,6 @@ export const SearchUserDrawer = () => {
   const searchDebounce = useDebounce(searchValue, 200);
   const [loadingFollow, setLoadingFollow] = useState(false);
   const [clickedFolowId, setClickedFollowId] = useState<string>();
-  const { back } = useRouter();
 
   const { userCollections, setSize, mutate, isLoading } = useSearchUsers(
     {
@@ -64,7 +63,7 @@ export const SearchUserDrawer = () => {
       color={user.is_followed ? "neutral" : "primary"}
       loading={loadingFollow && user.id === clickedFolowId}
       variant="outline"
-      onClick={async (e) => {
+      onClick={async (e: any) => {
         e.preventDefault();
         setLoadingFollow(true);
         setClickedFollowId(user.id);
@@ -107,7 +106,7 @@ export const SearchUserDrawer = () => {
                 href={ROUTES.USER_PROFILE(user.id)}
                 className="flex gap-4 mx-2 px-2 py-4 hover:bg-neutral-plain-hover rounded-lg items-center"
               >
-                <Avatar src={user.avatar} size="lg" />
+                <Avatar src={user.avatar ?? ""} size="lg" />
                 <div className="flex-1 flex gap-4 items-center">
                   <div className="w-full flex flex-col gap-2">
                     <Typography

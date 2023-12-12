@@ -10,8 +10,8 @@ import {
   TextFieldInput,
   TextFieldRoot,
   Typography,
-} from "@consolelabs/core";
-import { UserSolid } from "@consolelabs/icons";
+} from "@mochi-ui/core";
+import { User as UserSolid } from "lucide-react";
 import { FormEventHandler, useEffect, useState } from "react";
 
 interface ExcludeUsersModalProps {

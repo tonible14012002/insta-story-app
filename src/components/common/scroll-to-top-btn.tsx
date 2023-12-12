@@ -1,10 +1,10 @@
-import { IconButton } from "@consolelabs/core";
-import { ArrowUpLine } from "@consolelabs/icons";
+import { IconButton } from "@mochi-ui/core";
+import { ArrowUp } from "lucide-react";
 
 export const ScrollToTopButton = () => {
   return (
     <IconButton>
-      <ArrowUpLine />
+      <ArrowUp />
     </IconButton>
   );
 };
