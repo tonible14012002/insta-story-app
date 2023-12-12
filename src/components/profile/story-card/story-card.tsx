@@ -15,6 +15,7 @@ export const StoryCard = (props: BasicStory) => {
     isOpen,
     onOpen: _originOnOpen,
     onClose,
+    value: selectedId,
   } = useUrlDisclosure(STORY_PARAM_KEY);
   const onOpen = () => {
     _originOnOpen(id);
@@ -27,23 +28,17 @@ export const StoryCard = (props: BasicStory) => {
 
   return (
     <Modal open={isOpen} onOpenChange={onOpenChange}>
-      <ModalTrigger onClick={onOpen}>
+      <ModalTrigger onClick={onOpen} asChild>
         <div className="relative">
           <div className="relative w-full pb-[100%]">
-            <Image
-              className="absolute w-full h-full"
-              src={media_url}
-              alt=""
-              objectFit="cover"
-              fill
-            />
+            <Image src={media_url} alt="" objectFit="cover" fill />
           </div>
           {showView && (
             <div className="absolute bottom-2 right-2 text-xl text-text-secondary flex items-center gap-1">
               <Eye className="text-white" />
               <Typography
                 level="p6"
-                color="text-white max-w-[50px] line-clamp-1"
+                className="max-w-[50px] line-clamp-1 text-white"
               >
                 {total_view}
               </Typography>
@@ -52,7 +47,7 @@ export const StoryCard = (props: BasicStory) => {
         </div>
       </ModalTrigger>
       <ModalContent className={clsx(overlay.screen)}>
-        <StoryDetailView onClose={onClose} id={id} />
+        <StoryDetailView onClose={onClose} id={selectedId} />
       </ModalContent>
     </Modal>
   );

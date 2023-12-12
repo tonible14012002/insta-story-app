@@ -18,13 +18,16 @@ export type User = {
   is_followed?: boolean;
 };
 
-export type BasicUser = {
-  id: string;
-  avatar?: string;
-  nickname: string;
-  first_name: string;
-  last_name: string;
-};
+export type BasicUser = Pick<
+  User,
+  | "id"
+  | "avatar"
+  | "first_name"
+  | "last_name"
+  | "nickname"
+  | "total_followers"
+  | "is_followed"
+>;
 
 export interface UserRegistrationParams {
   username: string;

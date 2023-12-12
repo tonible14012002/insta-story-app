@@ -8,6 +8,7 @@ interface CustomHeaderProps extends PropsWithChildren {
   onBack?: () => void;
   backHref?: string;
   title?: ReactNode;
+  backButtonClassName?: string;
   closeModalOnBack?: boolean;
   className?: string;
 }
@@ -18,6 +19,7 @@ export const CustomHeader = (props: CustomHeaderProps) => {
     backHref,
     title,
     closeModalOnBack = false,
+    backButtonClassName,
     className,
     children,
   } = props;
@@ -37,8 +39,13 @@ export const CustomHeader = (props: CustomHeaderProps) => {
       {showBackButton &&
         renderBackLinkWrapper(
           <CloseModal>
-            <IconButton variant="ghost" color="neutral" onClick={onBack}>
-              <ArrowLeft className="text-lg" />
+            <IconButton
+              variant="ghost"
+              color="neutral"
+              onClick={onBack}
+              className={clsx("hover:bg-inherit", backButtonClassName)}
+            >
+              <ArrowLeft className="text-lg" width={18} height={18} />
             </IconButton>
           </CloseModal>,
         )}

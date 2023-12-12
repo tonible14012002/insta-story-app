@@ -14,7 +14,7 @@ export interface Story {
   expire_date: string;
   media_type: "VIDEO" | "IMAGE";
   owner: BasicUser;
-  total_view?: number;
+  total_view: number;
   caption: string;
   alt_text: string;
   view_option: "ONLY_ME" | "EVERYONE";
@@ -36,6 +36,7 @@ export type BasicStory = Pick<
   | "owner"
   | "total_view"
   | "alt_text"
+  | "caption"
 >;
 
 export interface CreateStoryBody {

@@ -100,7 +100,7 @@ export const ProfileHeadSection = (props: ProfileHeadSectionProps) => {
       <ModalClose asChild>
         <div className="flex flex-row gap-4 items-center hover:gap-5 transition-all px-2 hover:bg-neutral-plain-hover py-2 rounded-md">
           <Avatar src={user.avatar ?? ""} />
-          <Typography level="h7" className="line-clamp-1">
+          <Typography level="h8" className="line-clamp-1">
             @_{user.nickname}
           </Typography>
         </div>
@@ -113,9 +113,9 @@ export const ProfileHeadSection = (props: ProfileHeadSectionProps) => {
       <div className="w-[100px] h-full shrink-0">
         <Avatar src={profile?.avatar as string} />
       </div>
-      <div className="flex flex-1 flex-col gap-4 justify-between h-full">
+      <div className="flex flex-1 flex-col gap-4 pt-2 justify-between h-full">
         <Typography
-          level="h4"
+          level="h5"
           className="line-clamp-1 tracking-tighter max-w-[90%]"
         >
           @_{profile?.nickname}

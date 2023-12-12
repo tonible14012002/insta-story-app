@@ -19,24 +19,6 @@ export const ProfileStorySection = (props: ProfileStorySection) => {
 
   return (
     <div className="grid grid-cols-2">
-      {isCurrentUserProfile && (
-        <Modal>
-          <ModalTrigger asChild>
-            <div className="cursor-pointer h-[300px] w-full border-br border-neutral-0 flex items-center justify-center">
-              <PlusLine width={30} height={30} />
-            </div>
-          </ModalTrigger>
-          <ModalContent
-            className={clsx(
-              ...animation.modalAnimation,
-              "container h-screen !rounded-none",
-              "!p-0",
-            )}
-          >
-            <StoryUploaderModal onSuccess={onSuccess} />
-          </ModalContent>
-        </Modal>
-      )}
       {!stories ? (
         true
       ) : (

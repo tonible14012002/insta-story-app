@@ -88,7 +88,7 @@ export const SearchUserDrawer = () => {
         <>Unfollow</>
       ) : (
         <>
-          <PlusLine />
+          <PlusLine width={14} height={14} />
           Follow
         </>
       )}
