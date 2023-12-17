@@ -11,7 +11,7 @@ import {
 } from "@mochi-ui/core";
 import { Controller } from "react-hook-form";
 import { useForm } from "react-hook-form";
-import { User as UserSolid } from "lucide-react";
+import { ArrowRight, User as UserSolid } from "lucide-react";
 import { identityService } from "@/apis";
 import JWTManager from "@/libs/jwt-manager";
 import { useAuthContext } from "@/context/auth";
@@ -22,7 +22,12 @@ interface LoginFormValue {
   password: string;
 }
 
-export function LoginForm() {
+interface LoginFormProps {
+  onRegister?: () => void;
+}
+
+export function LoginForm(props: LoginFormProps) {
+  const { onRegister } = props;
   const { handleSubmit, control } = useForm<LoginFormValue>();
   const { setUser } = useAuthContext();
 
@@ -103,6 +108,16 @@ export function LoginForm() {
         />
         <Button className="mt-4 w-full" size="lg" type="submit">
           Sign in
+        </Button>
+        <Button
+          variant="outline"
+          className="mt-4 w-full"
+          size="lg"
+          type="button"
+          onClick={onRegister}
+        >
+          Register
+          <ArrowRight width={14} height={14} />
         </Button>
       </form>
     </div>

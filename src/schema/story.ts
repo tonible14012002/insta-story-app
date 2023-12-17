@@ -10,7 +10,7 @@ export interface Story {
   live_time: number;
   status: "NEW";
   privacy_mode: "PUBLIC" | "PRIVATE";
-  views: BasicUser[];
+  views: StoryView[];
   expire_date: string;
   media_type: "VIDEO" | "IMAGE";
   owner: BasicUser;
@@ -19,6 +19,12 @@ export interface Story {
   alt_text: string;
   view_option: "ONLY_ME" | "EVERYONE";
 }
+
+export type StoryView = {
+  pkid: number;
+  user: BasicUser;
+  viewed_at: string;
+};
 
 export type GetStoriesParams = {
   owner_id?: User["id"];

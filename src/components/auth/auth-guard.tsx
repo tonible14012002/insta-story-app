@@ -5,6 +5,7 @@ import { identityService } from "@/apis";
 import JWTManager from "@/libs/jwt-manager";
 import { LoginForm } from "./login";
 import { PageSkeleton } from "@/components/common/skeleton";
+import { AuthForm } from "./auth-form";
 
 const AuthGuard = ({ children }: PropsWithChildren) => {
   const { user, setUser } = useAuthContext();
@@ -56,8 +57,8 @@ const AuthGuard = ({ children }: PropsWithChildren) => {
       ) : isAuthenticated ? (
         children
       ) : (
-        <div className="bg-white sm:container m-auto">
-          <LoginForm />
+        <div className="bg-white sm:container m-auto h-full">
+          <AuthForm />
         </div>
       )}
     </>

@@ -31,7 +31,7 @@ export default function Profile() {
     stories,
     isFirstLoading: isStoryFirstLoading,
     mutate: storiesMutate,
-  } = useFetchActiveStoriesByUserId(profile?.id, Boolean(profile?.id));
+  } = useFetchActiveStoriesByUserId(profile?.id, Boolean(!isFirstLoading));
 
   const isCurrentUserProfile = profile?.id === user?.id;
 

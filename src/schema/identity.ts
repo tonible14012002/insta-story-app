@@ -1,10 +1,11 @@
 import { PaginationParams } from "./common";
+import COUNTRY_CODE from "@/constants/country-code.json";
 
 export type User = {
   avatar?: string;
   gender: "MALE" | "FEMALE" | "OTHER";
   city: string;
-  country: "US";
+  country?: keyof typeof COUNTRY_CODE;
   nickname: string;
   id: string;
   username: string;
@@ -29,18 +30,22 @@ export type BasicUser = Pick<
   | "is_followed"
 >;
 
-export interface UserRegistrationParams {
-  username: string;
-  first_name?: string;
-  last_name?: string;
-  email?: string;
-  gender?: string;
-  city?: string;
-  country?: string;
-  avatar?: string;
+export type UserRegistrationParams = Pick<
+  User,
+  | "username"
+  | "first_name"
+  | "last_name"
+  | "email"
+  | "gender"
+  | "city"
+  | "country"
+  | "avatar"
+  | "phone"
+  | "dob"
+> & {
   password: string;
   password_confirm: string;
-}
+};
 
 export interface LoginResponse {
   access: string;
