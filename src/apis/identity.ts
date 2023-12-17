@@ -11,6 +11,7 @@ import {
   User,
   UserByIdsResponse,
   UserRegistrationParams,
+  UserUpdateBody,
 } from "@/schema";
 import queryString from "query-string";
 
@@ -39,6 +40,18 @@ class IdentityService extends Client {
       {
         headers: this.headers,
         method: "POST",
+        body: JSON.stringify(params),
+      },
+    );
+  }
+
+  public update(id: string, params: UserUpdateBody) {
+    this.setAuth();
+    return fetcher<BaseResponse<LoginResponse>>(
+      `${this.baseUrl}/api/user-services/profile/${id}/`,
+      {
+        headers: this.privateHeaders,
+        method: "PUT",
         body: JSON.stringify(params),
       },
     );

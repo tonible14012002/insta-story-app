@@ -1,61 +1,62 @@
-import { useForm, Controller, FormProvider } from "react-hook-form";
-import type { ControllerProps } from "react-hook-form";
+import { identityService } from "@/apis";
+import { uploaderService } from "@/apis/uploader";
+import { useAuthContext } from "@/context/auth";
+import { UserUpdateBody } from "@/schema";
+import { Image as ImageSolid, X as CloseLine } from "lucide-react";
+import Image from "next/image";
 import {
-  Typography,
-  FormLabel,
-  TextFieldRoot,
-  TextFieldInput,
   FormControl,
-  FormHelperText,
   FormErrorMessage,
-  Button,
-  Select,
-  SelectItem,
-  SelectLabel,
-  SelectContent,
-  SelectTrigger,
-  SelectValue,
-  label,
-  IconButton,
+  FormHelperText,
+  FormLabel,
+  TextFieldInput,
   TextFieldInputProps,
+  TextFieldRoot,
+  Typography,
+  IconButton,
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+  SelectValue,
+  Button,
 } from "@mochi-ui/core";
-import { ArrowLeft, Image as ImageSolid, X as CloseLine } from "lucide-react";
-import COUNTRY_CODE from "@/constants/country-code.json";
-import { UserRegistrationParams } from "@/schema";
 import { useCallback, useEffect, useState } from "react";
 import { DropzoneOptions, useDropzone } from "react-dropzone";
-import Image from "next/image";
-import { uploaderService } from "@/apis/uploader";
+import {
+  Controller,
+  ControllerProps,
+  useForm,
+  FormProvider,
+} from "react-hook-form";
 import toast from "react-hot-toast";
-import { identityService } from "@/apis";
+import { useFetchProfile } from "@/hooks/useFetchProfile";
+import { PageSkeleton } from "@/components/common/skeleton";
+import COUNTRY_CODE from "@/constants/country-code.json";
 
-type RegisterFormValue = Omit<UserRegistrationParams, "avatar">;
+type UserUpdateFormValue = Omit<UserUpdateBody, "avatar">;
 
-interface RegisterFormProps {
-  onLogin?: () => void;
-}
-
-export const Register = (props: RegisterFormProps) => {
-  const { onLogin } = props;
+export default function ProfileSettings() {
+  const { user, setUser } = useAuthContext();
   const [previewAvatar, setPreviewAvatar] = useState("");
   const [selectedImage, setSelectedImage] = useState<Blob>();
   const [avatarStep, setAvatarStep] = useState<"ONE" | "TWO">("ONE");
   const [uploadedUrl, setUploadedUrl] = useState<string>();
+  const { profile, isFirstLoading, mutate } = useFetchProfile(user?.id);
 
-  const formProps = useForm<RegisterFormValue>({
+  const formProps = useForm<UserUpdateFormValue>({
     defaultValues: {
-      username: "",
-      password: "",
-      password_confirm: "",
+      first_name: "",
+      last_name: "",
       country: "VN",
       city: "",
       gender: "OTHER",
       phone: "",
-      email: "",
+      dob: "",
     },
   });
 
-  const { handleSubmit } = formProps;
+  const { handleSubmit, reset } = formProps;
 
   const onDrop: DropzoneOptions["onDrop"] = useCallback(
     (acceptFile: Blob[]) => {
@@ -76,7 +77,7 @@ export const Register = (props: RegisterFormProps) => {
     },
   });
 
-  const onSubmit = async (value: RegisterFormValue) => {
+  const onSubmit = async (value: UserUpdateFormValue) => {
     let avatarUrl = uploadedUrl;
     if (!avatarUrl && selectedImage) {
       try {
@@ -91,19 +92,32 @@ export const Register = (props: RegisterFormProps) => {
       }
     }
 
-    const body: UserRegistrationParams = {
+    const body: UserUpdateBody = {
       ...value,
       avatar: avatarUrl,
     };
 
     try {
-      await identityService.register(body);
+      await identityService.update(user?.id as string, body);
       toast("Registered successfully");
-      onLogin?.();
+      mutate();
     } catch (e) {
       toast("Some thing wrong! try reload your page");
     }
   };
+
+  useEffect(() => {
+    if (isFirstLoading) return;
+    reset(profile);
+    if (profile?.avatar) {
+      setUploadedUrl(profile.avatar);
+      setPreviewAvatar(profile.avatar);
+      setAvatarStep("TWO");
+    }
+    if (profile) {
+      setUser(profile);
+    }
+  }, [isFirstLoading, profile, reset, setUser]);
 
   useEffect(() => {
     if (selectedImage) {
@@ -114,20 +128,17 @@ export const Register = (props: RegisterFormProps) => {
     return;
   }, [selectedImage]);
 
+  if (isFirstLoading) return <PageSkeleton />;
+
   return (
     <FormProvider {...formProps}>
-      <div className="flex flex-col items-center top-10 pb-10">
-        <form
-          className="w-md bg-white p-4 rounded-md min-w-[400px]"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <Typography level="h5" className="text-neutral-500">
-            Register
-          </Typography>
+      <div className="p-4">
+        <Typography level="h5">Profile Settings</Typography>
+        <form onSubmit={handleSubmit(onSubmit)}>
           {avatarStep === "ONE" && (
             <div
               {...getRootProps()}
-              className="w-40 h-40 bg-neutral-100 rounded-full m-auto my-4 flex items-center justify-center cursor-pointer active:scale-90 transition"
+              className="w-40 h-40 bg-neutral-100 rounded-full my-4 flex items-center justify-center cursor-pointer active:scale-90 transition"
             >
               <ImageSolid width={40} height={40} />
               <input {...getInputProps()} />
@@ -135,7 +146,7 @@ export const Register = (props: RegisterFormProps) => {
           )}
 
           {avatarStep === "TWO" && (
-            <div className="relative w-40 h-40 bg-neutral-100 rounded-full m-auto my-4 flex items-center justify-center cursor-pointer">
+            <div className="relative w-40 h-40 bg-neutral-100 rounded-full my-4 flex items-center justify-center cursor-pointer">
               <IconButton
                 className="absolute right-0 top-0 active:scale-95 transition"
                 variant="ghost"
@@ -157,51 +168,32 @@ export const Register = (props: RegisterFormProps) => {
               </div>
             </div>
           )}
-
-          <FormInputValue
-            label="Username"
-            name="username"
-            rules={{
-              required: "This field is required",
-            }}
+          <FormInputValue name="nickname" label="Nickname" />
+          <Controller<UserUpdateFormValue>
+            name="dob"
+            render={({ field: { value, ...restField }, fieldState }) => (
+              <FormControl error={!!fieldState.error} className="mt-2">
+                <FormLabel>Date of birth</FormLabel>
+                <TextFieldRoot size="lg">
+                  <TextFieldInput
+                    type="date"
+                    value={value ?? ""}
+                    {...restField}
+                  />
+                </TextFieldRoot>
+                <FormErrorMessage>{fieldState.error?.message}</FormErrorMessage>
+              </FormControl>
+            )}
           />
-          <FormInputValue
-            label="Password"
-            name="password"
-            type="password"
-            rules={{
-              required: "This field is required",
-            }}
-          />
-          <FormInputValue
-            label="Confirm password"
-            name="password_confirm"
-            type="password"
-            rules={{
-              required: "This field is required",
-            }}
-          />
-          <FormInputValue
-            label="Phone number"
-            name="phone"
-            rules={{
-              required: "This field is required",
-            }}
-          />
-          <FormInputValue
-            label="City"
-            name="city"
-            rules={{
-              required: "Type in your city",
-            }}
-          />
+          <FormInputValue label="Phone number" name="phone" />
+          <FormInputValue label="City" name="city" />
           <Controller
             name="country"
             render={({ field }) => (
               <div className="mt-2">
                 <FormLabel>Country</FormLabel>
                 <Select {...field}>
-                  <SelectTrigger className="py-[10px] px-[14px] w-full justify-between">
+                  <SelectTrigger className="py-[10px] px-[14px] w-full justify-between h-[52px]">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="h-[var(--radix-select-content-available-height)] overflow-y-scroll no-scrollbar drop-shadow">
@@ -216,27 +208,50 @@ export const Register = (props: RegisterFormProps) => {
               </div>
             )}
           />
-          <Button className="mt-4 w-full" size="lg" type="submit">
-            Register
-          </Button>
-          <Button
-            variant="outline"
-            className="mt-4 w-full"
-            size="lg"
-            type="button"
-            onClick={onLogin}
-          >
-            <ArrowLeft width={14} />
-            Login
+          <Controller
+            name="gender"
+            render={({ field }) => (
+              <div className="mt-2">
+                <FormLabel>Gender</FormLabel>
+                <Select {...field}>
+                  <SelectTrigger className="py-[10px] px-[14px] w-full justify-between h-[52px]">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent className="h-[var(--radix-select-content-available-height)] overflow-y-scroll no-scrollbar drop-shadow">
+                    {[
+                      {
+                        key: "MALE",
+                        label: "Male",
+                      },
+                      {
+                        key: "FEMALE",
+                        label: "FEMALE",
+                      },
+                      {
+                        key: "OTHER",
+                        label: "Other",
+                      },
+                    ].map(({ key, label }) => (
+                      <SelectItem key={key} value={key}>
+                        {label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            )}
+          />
+          <Button className="w-full mt-6" size="lg" type="submit">
+            Update
           </Button>
         </form>
       </div>
     </FormProvider>
   );
-};
+}
 
 const FormInputValue = (
-  props: Omit<ControllerProps<RegisterFormValue>, "render"> & {
+  props: Omit<ControllerProps<UserUpdateFormValue>, "render"> & {
     placeholder?: string;
     helpText?: string;
     label?: string;
@@ -245,12 +260,12 @@ const FormInputValue = (
 ) => {
   const { name, placeholder, helpText, label, type } = props;
   return (
-    <Controller<RegisterFormValue>
+    <Controller<UserUpdateFormValue>
       name={name}
       render={({ field: { value, ...restField }, fieldState }) => (
         <FormControl error={!!fieldState.error} className="mt-2">
           {label && <FormLabel>{label}</FormLabel>}
-          <TextFieldRoot>
+          <TextFieldRoot size="lg">
             <TextFieldInput
               type={type}
               value={value ?? ""}

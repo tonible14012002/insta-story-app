@@ -3,12 +3,20 @@ import { PageSkeleton } from "@/components/common/skeleton";
 import { useAuthContext } from "@/context/auth";
 import { useFetchActiveStoriesFeed } from "@/hooks/useFetchActiveStoryFeed";
 import { BasicStory } from "@/schema/story";
-import { Avatar, Typography, Button } from "@mochi-ui/core";
+import {
+  Avatar,
+  Typography,
+  Button,
+  Modal,
+  ModalTrigger,
+  ModalContent,
+} from "@mochi-ui/core";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ROUTES } from "@/constants";
 import { Plus } from "lucide-react";
+import { StoryDetailView } from "@/components/profile/story-card/story-detail-view";
 
 export default function Home() {
   const { user } = useAuthContext();
@@ -35,6 +43,7 @@ const StoryViewFeedCard = (props: StoryViewFeedProps) => {
   const { user } = useAuthContext();
   const [isFollowed, setIsFollowed] = useState(story.owner.is_followed);
   const [isLoadingFollow, setIsLoadingFollow] = useState(false);
+  const [open, setOpen] = useState(false);
   const isCurrentUser = story.owner.id === user?.id;
 
   const renderFollowButton = isCurrentUser ? null : (
@@ -88,15 +97,22 @@ const StoryViewFeedCard = (props: StoryViewFeedProps) => {
           {renderFollowButton}
         </div>
         <Typography level="p6">{story.caption}</Typography>
-        <div className="relative w-full min-h-[300px] mt-3 rounded-lg overflow-hidden border">
-          <Image
-            src={story.media_url ?? ""}
-            alt={story.alt_text}
-            layout="responsive"
-            width={1000}
-            height={400}
-          />
-        </div>
+        <Modal open={open} onOpenChange={setOpen}>
+          <ModalTrigger>
+            <div className="relative w-full min-h-[300px] mt-3 rounded-lg overflow-hidden border">
+              <Image
+                src={story.media_url ?? ""}
+                alt={story.alt_text}
+                layout="responsive"
+                width={1000}
+                height={400}
+              />
+            </div>
+          </ModalTrigger>
+          <ModalContent className="container h-screen !p-0">
+            <StoryDetailView id={story.id} onClose={() => setOpen(false)} />
+          </ModalContent>
+        </Modal>
         <div className="mt-2">
           <Typography color="textSecondary" level="p6">
             {story.total_view}

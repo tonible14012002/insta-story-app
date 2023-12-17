@@ -81,18 +81,11 @@ export const ProfileHeadSection = (props: ProfileHeadSectionProps) => {
   );
 
   const renderEditProfileModal = (
-    <Modal>
-      <ModalTrigger asChild>
-        <Button className="min-w-[120px]" variant="outline" color="secondary">
-          Edit Profile
-        </Button>
-      </ModalTrigger>
-      <ModalContent
-        className={clsx("duration-200", ...animation.modalAnimation)}
-      >
+    <Link href={ROUTES.USER_PROFILE_SETTING}>
+      <Button className="min-w-[120px]" variant="outline" color="secondary">
         Edit Profile
-      </ModalContent>
-    </Modal>
+      </Button>
+    </Link>
   );
 
   const userItemRenderer = (user: BasicUser) => (

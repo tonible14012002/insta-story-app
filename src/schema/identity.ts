@@ -12,7 +12,7 @@ export type User = {
   first_name: string;
   last_name: string;
   email: string;
-  dob: null;
+  dob: string;
   phone: string;
   total_followers: number;
   total_followings: number;
@@ -46,6 +46,19 @@ export type UserRegistrationParams = Pick<
   password: string;
   password_confirm: string;
 };
+
+export type UserUpdateBody = Pick<
+  User,
+  | "avatar"
+  | "first_name"
+  | "last_name"
+  | "gender"
+  | "city"
+  | "country"
+  | "phone"
+  | "dob"
+  | "nickname"
+>;
 
 export interface LoginResponse {
   access: string;
